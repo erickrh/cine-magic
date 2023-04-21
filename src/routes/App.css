@@ -1,0 +1,28 @@
+/* Shared */
+.header-container, .trendingPreview-header, .categoriesPreview-container {
+  padding: 0 24px;
+}
+
+.trendingPreview-container, .categoriesPreview-container, footer {
+  margin-top: 48px;
+}
+
+.trendingPreview-header, .categoriesPreview-title {
+  margin-bottom: 24px;
+}
+
+.movie-container {
+  cursor: pointer;
+}
+
+.movie-img {
+  border-radius: 8px;
+}
+
+.categoriesPreview-list, .categories-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  flex-wrap: wrap;
+}
