@@ -3,6 +3,7 @@ import { Header } from '../../ui/Header';
 import { TrendingPreview } from '../../ui/TrendingPreview';
 import { CategoriesPreview } from '../../ui/CategoriesPreview';
 import { useMovieAPI } from '../../hooks/useMovieAPI';
+import { MovieList } from '../../ui/MovieList';
 
 function HomePage() {
   const { trendingMovies } = useMovieAPI();
@@ -11,7 +12,15 @@ function HomePage() {
     <>
       <Header />
 
-      <TrendingPreview trendingMovies={ trendingMovies } />
+      <TrendingPreview trendingMovies={trendingMovies}
+        render={movie => (
+          <MovieList
+            key={movie.title}
+            title={movie.title}
+            image={movie.poster_path}
+          />
+        )}
+      />
 
       <CategoriesPreview />
     </>
