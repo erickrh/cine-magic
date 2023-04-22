@@ -1,5 +1,7 @@
 import React from 'react';
 import { Header } from '../../ui/Header';
+import { TrendingPreview } from '../../ui/TrendingPreview';
+import { CategoriesPreview } from '../../ui/CategoriesPreview';
 
 function HomePage() {
   const getTrendingMoviesPreview = async () => {
@@ -12,7 +14,13 @@ function HomePage() {
   getTrendingMoviesPreview();
   
   return (
-    <Header />
+    <>
+      <Header />
+
+      <TrendingPreview />
+
+      <CategoriesPreview />
+    </>
   );
 }
 
