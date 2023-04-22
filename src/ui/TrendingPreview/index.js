@@ -2,7 +2,8 @@ import React from 'react';
 import './TrendingPreview.css';
 import '../../routes/App.css';
 
-function TrendingPreview() {
+function TrendingPreview(props) {
+  console.log(props.trendingMovies);
   return (
     <section id='trendingPreview' className='trendingPreview-container'>
       <div className='trendingPreview-header'>
