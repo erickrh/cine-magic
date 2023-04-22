@@ -17,7 +17,8 @@ module.exports = {
     'sourceType': 'module'
   },
   'plugins': [
-    'react'
+    'react',
+    '@html-eslint'
   ],
   'rules': {
     'indent': [
@@ -33,13 +34,27 @@ module.exports = {
       'single',
       { 'allowTemplateLiterals': true }
     ],
-    
     'semi': [
       'error',
       'always'
     ],
+    '@html-eslint/quotes': [
+      'error',
+      'single',
+    ],
+    '@html-eslint/indent': [
+      'error',
+      2
+    ],
     'react/react-in-jsx-scope': 'off',  
     'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }],
     'react/prop-types': 0
-  }
+  },
+  'overrides': [
+    {
+      'files': ['*.html'],
+      'parser': '@html-eslint/parser',
+      'extends': ['plugin:@html-eslint/recommended'],
+    },
+  ],
 };
