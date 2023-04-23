@@ -6,7 +6,7 @@ import { useMovieAPI } from '../../hooks/useMovieAPI';
 import { MovieList } from '../../ui/MovieList';
 
 function HomePage() {
-  const { trendingMovies } = useMovieAPI();
+  const { trendingMovies, genres } = useMovieAPI();
 
   return (
     <>
@@ -22,7 +22,7 @@ function HomePage() {
         )}
       />
 
-      <CategoriesPreview />
+      <CategoriesPreview genres={genres} />
     </>
   );
 }

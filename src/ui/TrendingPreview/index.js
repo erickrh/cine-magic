@@ -3,7 +3,6 @@ import './TrendingPreview.css';
 import '../../routes/App.css';
 
 function TrendingPreview({ trendingMovies, render }) {
-  console.log(trendingMovies);
   return (
     <section id='trendingPreview' className='trendingPreview-container'>
       <div className='trendingPreview-header'>
