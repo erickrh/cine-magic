@@ -28,9 +28,21 @@ function useMovieAPI() {
     getCategoriesPreview();
   }, []);
 
+  const [categoryMovies, setCategoryMovies] = React.useState([]);
+  const getMoviesByCategory = async id => {
+    const { data } = await api('discover/movie', {
+      params: {
+        with_genres: id,
+      },
+    });
+    setCategoryMovies(data.results);
+  };
+  
   return {
     trendingMovies,
     genres,
+    categoryMovies,
+    getMoviesByCategory,
   };
 }
 
