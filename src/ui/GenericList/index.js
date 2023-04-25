@@ -24,6 +24,10 @@ function GenericList(props) {
             );
           }
         })}
+
+        {props.movies.length < 1 && (
+          <h2>No se encontraron peliculas de {props.title}.</h2>
+        )}
       </section>
     </>
   );
