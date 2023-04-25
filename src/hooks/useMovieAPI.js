@@ -37,12 +37,24 @@ function useMovieAPI() {
     });
     setCategoryMovies(data.results);
   };
+
+  const [searchMovies, setSearchMovies] = React.useState([]);
+  const getMoviesBySearch = async query => {
+    const { data } = await api('/search/movie', {
+      params: {
+        query,
+      },
+    });
+    setSearchMovies(data.results);
+  };
   
   return {
     trendingMovies,
     genres,
     categoryMovies,
+    searchMovies,
     getMoviesByCategory,
+    getMoviesBySearch,
   };
 }
 
