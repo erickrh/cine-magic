@@ -12,7 +12,7 @@ function App() {
 
         <Route path='/trending' element={<TrendingPage />} />
         
-        <Route path='/category' element={<CategoryPage />} />
+        <Route path='/category/:slug' element={<CategoryPage />} />
 
         <Route path='*' element={<HomePage />} />
       </Routes>

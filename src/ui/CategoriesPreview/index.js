@@ -13,7 +13,7 @@ function CategoriesPreview({ genres }) {
       <article className='categoriesPreview-list'>
         {genres.map(genre => (
           <div
-            onClick={() => navigate('/category', {
+            onClick={() => navigate(`/category/${genre.id}=${genre.name}`, {
               state: { genre }
             })}
             key={genre.id}

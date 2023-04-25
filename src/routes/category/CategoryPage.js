@@ -1,21 +1,29 @@
 import React from 'react';
 import { GenericList } from '../../ui/GenericList';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { useMovieAPI } from '../../hooks/useMovieAPI';
 
 function CategoryPage() {
   const { getMoviesByCategory, categoryMovies } = useMovieAPI();
   const location = useLocation();
+  const { slug } = useParams();
 
-  let category;
-  if (location.state?.genre) category = location.state.genre;
+  let name, id, category;
+  if (location.state?.genre) {
+    name = location.state.genre.name;
+    id = location.state.genre.id;
+  } else {
+    category = slug.split('=');
+    id = category[0];
+    name = category[1];
+  }
 
   React.useEffect(() => {
-    getMoviesByCategory(category.id);
+    getMoviesByCategory(id);
   }, []);
 
   return (
-    <GenericList title={category.name} movies={categoryMovies} />
+    <GenericList title={name} movies={categoryMovies} />
   );
 }
 
