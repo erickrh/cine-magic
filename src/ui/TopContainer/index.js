@@ -8,7 +8,7 @@ function TopContainer(props) {
   return (
     <div className='header-container'>
       <span
-        onClick={() => navigate('/')}
+        onClick={() => navigate(-1)}
         className='header-arrow'>
           &lt;
       </span>
