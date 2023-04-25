@@ -2,6 +2,7 @@ import React from 'react';
 import { GenericList } from '../../ui/GenericList';
 import { useParams } from 'react-router-dom';
 import { useMovieAPI } from '../../hooks/useMovieAPI';
+import { Header } from '../../ui/Header';
 
 function SearchPage() {
   const { query } = useParams();
@@ -10,10 +11,13 @@ function SearchPage() {
 
   React.useEffect(() => {
     getMoviesBySearch(query);
-  }, []);
+  }, [searchMovies]);
 
   return (
-    <GenericList title={query} movies={searchMovies} />
+    <>
+      <Header />
+      <GenericList title={query} movies={searchMovies} />
+    </>
   );
 }
 export { SearchPage };

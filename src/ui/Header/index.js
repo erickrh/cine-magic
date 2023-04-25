@@ -1,27 +1,40 @@
 import React from 'react';
 import './Header.css';
 import '../../routes/App.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function Header() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const locationHash = location.pathname.split('/');
   const [inputSearchMovie, setInputSearchMovie] = React.useState('');
 
   const onSearchValueChange = event => {
     setInputSearchMovie(event.target.value);
   };
 
-  const goToSearchPage = () => {
-    navigate(`/search/${inputSearchMovie}`);
+  const goToSearchPage = event => {
+    const inputPlaceholder = document.querySelector('.header-searchForm input');
+
+    if (inputSearchMovie.length > 0) {
+      navigate(`/search/${inputSearchMovie}`);
+    } else {
+      inputPlaceholder.placeholder = 'Upss, olvidaste el nombre!';
+    }
+    event.preventDefault();
   };
 
   const onKeyDown = event => {
-    if (event.key === 'Enter') goToSearchPage();
+    if (event.key === 'Enter') goToSearchPage(event);
   };
 
   return (
     <header id='header' className='header-container'>
-      <h1 className='header-title'>Cine Magic</h1>
+      {
+        locationHash[1] !== 'search' && (
+          <h1 className='header-title'>Cine Magic</h1>
+        )
+      }
 
       <form id='searchForm' className='header-searchForm' onSubmit={goToSearchPage}>
         <input
