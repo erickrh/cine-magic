@@ -8,13 +8,13 @@ function App() {
   return (
     <HashRouter>
       <Routes>
-        <Route element={<HomePage />} path='/' />
+        <Route path='/' element={<HomePage />} />
 
-        <Route element={<TrendingPage />} path='/trending' />
+        <Route path='/trending' element={<TrendingPage />} />
         
-        <Route element={<CategoryPage />} path='category' />
+        <Route path='/category' element={<CategoryPage />} />
 
-        <Route element={<HomePage />} path='*' />
+        <Route path='*' element={<HomePage />} />
       </Routes>
 
     </HashRouter>
