@@ -13,7 +13,7 @@ function useMovieAPI() {
   const [trendingMovies, setTrendingMovies] = React.useState([]);
   React.useEffect(() => {
     const getTrendingMoviesPreview = async () => {
-      const { data } = await api(`trending/movie/day`);
+      const { data } = await api('trending/movie/day');
       setTrendingMovies(data.results);
     };
     getTrendingMoviesPreview();

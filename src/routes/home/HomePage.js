@@ -15,7 +15,7 @@ function HomePage() {
       <TrendingPreview trendingMovies={trendingMovies}
         render={movie => (
           <MovieList
-            key={movie.title}
+            key={movie.id}
             title={movie.title}
             image={movie.poster_path}
           />
