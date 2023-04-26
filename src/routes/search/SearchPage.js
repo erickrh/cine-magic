@@ -16,7 +16,6 @@ function SearchPage() {
 
   React.useEffect(() => {
     getMoviesBySearch(query);
-    console.log(query);
   }, [query]);
 
   return (
