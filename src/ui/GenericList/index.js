@@ -3,8 +3,11 @@ import '../../routes/App.css';
 import './../Header/Header.css';
 import './GenericList.css';
 import { TopContainer } from '../TopContainer';
+import { useNavigate } from 'react-router-dom';
 
 function GenericList(props) {
+  const navigate = useNavigate();
+
   const [triggerMsg, setTriggerMsg] = React.useState(false);
   const counter = setTimeout(() => {
     setTriggerMsg(true);
@@ -20,7 +23,10 @@ function GenericList(props) {
           if (!movie.poster_path) return;
           else {
             return (
-              <div key={movie.id} className="movie-container">
+              <div
+                key={movie.id}
+                onClick={() => navigate(`/details/${movie.id}`)}
+                className="movie-container">
                 <img
                   src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
                   className='movie-img'

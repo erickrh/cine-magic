@@ -24,6 +24,7 @@ function HomePage() {
         render={movie => (
           <MovieList
             key={movie.id}
+            id={movie.id}
             title={movie.title}
             image={movie.poster_path}
           />

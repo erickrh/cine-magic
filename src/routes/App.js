@@ -4,6 +4,7 @@ import { HomePage } from './home/HomePage';
 import { TrendingPage } from './trending/TrendingPage';
 import { CategoryPage } from './category/CategoryPage';
 import { SearchPage } from './search/SearchPage';
+import { DetailsPage } from './details/DetailsPage';
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         <Route path='/category/:slug' element={<CategoryPage />} />
 
         <Route path='/search/:query' element={<SearchPage />} />
+
+        <Route path='/details/:movieId' element={<DetailsPage />} />
 
         <Route path='*' element={<HomePage />} />
       </Routes>
