@@ -6,13 +6,21 @@ import { useMovieAPI } from '../../hooks/useMovieAPI';
 import { MovieList } from '../../ui/MovieList';
 
 function HomePage() {
-  const { trendingMovies, genres } = useMovieAPI();
+  const {
+    loading,
+    error,
+    trendingMovies,
+    genres,
+  } = useMovieAPI();
 
   return (
     <>
       <Header />
 
-      <TrendingPreview trendingMovies={trendingMovies}
+      <TrendingPreview
+        loading={loading}
+        error={error}
+        trendingMovies={trendingMovies}
         render={movie => (
           <MovieList
             key={movie.id}

@@ -15,7 +15,7 @@ function Header() {
 
   const goToSearchPage = event => {
     const inputPlaceholder = document.querySelector('.header-searchForm input');
-
+    
     if (inputSearchMovie.length > 0) {
       navigate(`/search/${inputSearchMovie}`);
     } else {

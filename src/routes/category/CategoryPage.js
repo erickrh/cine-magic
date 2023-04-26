@@ -4,7 +4,13 @@ import { useLocation, useParams } from 'react-router-dom';
 import { useMovieAPI } from '../../hooks/useMovieAPI';
 
 function CategoryPage() {
-  const { getMoviesByCategory, categoryMovies } = useMovieAPI();
+  const {
+    loading,
+    error,
+    categoryMovies,
+    getMoviesByCategory,
+  } = useMovieAPI();
+
   const location = useLocation();
   const { slug } = useParams();
 
@@ -23,7 +29,12 @@ function CategoryPage() {
   }, []);
 
   return (
-    <GenericList title={name} movies={categoryMovies} />
+    <GenericList
+      title={name}
+      movies={categoryMovies}
+      error={error}
+      loading={loading}
+    />
   );
 }
 

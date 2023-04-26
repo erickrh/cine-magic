@@ -3,7 +3,7 @@ import './TrendingPreview.css';
 import '../../routes/App.css';
 import { useNavigate } from 'react-router-dom';
 
-function TrendingPreview({ trendingMovies, render }) {
+function TrendingPreview({ loading, error, trendingMovies, render }) {
   const navigate = useNavigate();
 
   return (
@@ -23,7 +23,11 @@ function TrendingPreview({ trendingMovies, render }) {
       </div>
 
       <article className='trendingPreview-movieList'>
-        {trendingMovies.map(render)}
+        {error && <p>Ha ocurrido un error: {error}</p>}
+
+        {loading && <p>Cargando...</p>}
+
+        {(!error && !loading) && trendingMovies.map(render)}
       </article>
       
     </section>

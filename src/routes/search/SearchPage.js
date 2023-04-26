@@ -7,16 +7,26 @@ import { Header } from '../../ui/Header';
 function SearchPage() {
   const { query } = useParams();
   
-  const { searchMovies, getMoviesBySearch } = useMovieAPI();
+  const {
+    loading,
+    error,
+    searchMovies,
+    getMoviesBySearch,
+  } = useMovieAPI();
 
   React.useEffect(() => {
     getMoviesBySearch(query);
-  }, [searchMovies]);
+    console.log(query);
+  }, [query]);
 
   return (
     <>
       <Header />
-      <GenericList title={query} movies={searchMovies} />
+      <GenericList
+        loading={loading}
+        error={error}
+        title={query}
+        movies={searchMovies} />
     </>
   );
 }

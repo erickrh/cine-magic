@@ -10,11 +10,20 @@ function useMovieAPI() {
     },
   });
   
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState('');
+  
   const [trendingMovies, setTrendingMovies] = React.useState([]);
   React.useEffect(() => {
     const getTrendingMoviesPreview = async () => {
-      const { data } = await api('trending/movie/day');
-      setTrendingMovies(data.results);
+      try {
+        setLoading(true);
+        const { data } = await api('trending/movie/day');
+        setTrendingMovies(data.results);
+      } catch (e) {
+        setError(e);
+      }
+      setLoading(false);
     };
     getTrendingMoviesPreview();
   }, []);
@@ -22,33 +31,51 @@ function useMovieAPI() {
   const [genres, setGenres] = React.useState([]);
   React.useEffect(() => {
     const getCategoriesPreview = async () => {
-      const { data } = await api('genre/movie/list');
-      setGenres(data.genres);
+      try {
+        const { data } = await api('genre/movie/list');
+        setGenres(data.genres);
+      } catch (e) {
+        setError(e);
+      }
     };
     getCategoriesPreview();
   }, []);
 
   const [categoryMovies, setCategoryMovies] = React.useState([]);
   const getMoviesByCategory = async id => {
-    const { data } = await api('discover/movie', {
-      params: {
-        with_genres: id,
-      },
-    });
-    setCategoryMovies(data.results);
+    try {
+      setLoading(true);
+      const { data } = await api('discover/movie', {
+        params: {
+          with_genres: id,
+        },
+      });
+      setCategoryMovies(data.results);
+    } catch (e) {
+      setError(e);
+    }
+    setLoading(false);
   };
 
   const [searchMovies, setSearchMovies] = React.useState([]);
   const getMoviesBySearch = async query => {
-    const { data } = await api('/search/movie', {
-      params: {
-        query,
-      },
-    });
-    setSearchMovies(data.results);
+    try {
+      setLoading(true);
+      const { data } = await api('/search/movie', {
+        params: {
+          query,
+        },
+      });
+      setSearchMovies(data.results);
+    } catch (e) {
+      setError(e);
+    }
+    setLoading(false);
   };
   
   return {
+    loading,
+    error,
     trendingMovies,
     genres,
     categoryMovies,
