@@ -72,6 +72,12 @@ function useMovieAPI() {
     }
     setLoading(false);
   };
+
+  const [movieDetails, setMovieDetails] = React.useState({});
+  const getMovieDetails = async id => {
+    const { data: movie } = await api('movie/' + id);
+    setMovieDetails(movie);
+  };
   
   return {
     loading,
@@ -80,8 +86,10 @@ function useMovieAPI() {
     genres,
     categoryMovies,
     searchMovies,
+    movieDetails,
     getMoviesByCategory,
     getMoviesBySearch,
+    getMovieDetails,
   };
 }
 

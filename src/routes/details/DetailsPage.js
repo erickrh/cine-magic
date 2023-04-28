@@ -1,23 +1,28 @@
 import React from 'react';
 import './DetailsPage.css';
 import { useParams } from 'react-router-dom';
+import { useMovieAPI } from '../../hooks/useMovieAPI';
 
 function DetailsPage() {
   const { movieId } = useParams();
-  console.log(movieId);
+  
+  const { movieDetails, getMovieDetails } = useMovieAPI();
+  React.useEffect(() => {
+    getMovieDetails(movieId);
+  }, []);
 
-  const backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%), url("https://image.tmdb.org/t/p/w500/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg")';
+  const backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%), url(https://image.tmdb.org/t/p/w500${movieDetails.poster_path})`;
 
   return (
     <>
-      <header style={{backgroundImage: backgroundImage}} className='moviePoster'></header>
+      {movieDetails.poster_path && (
+        <header style={{backgroundImage: backgroundImage}} className='moviePoster'></header>
+      )}
 
       <section id="movieDetail" className="movieDetail-container">
-        <h1 className="movieDetail-title">Deadpool</h1>
-        <span className="movieDetail-score">7.6</span>
-        <p className="movieDetail-description">
-      Wisecracking mercenary Deadpool battles the evil and powerful Cable and other bad guys to save a boys life.
-        </p>
+        <h1 className="movieDetail-title">{movieDetails.original_title}</h1>
+        <span className="movieDetail-score">{movieDetails.vote_average}</span>
+        <p className="movieDetail-description">{movieDetails.overview}</p>
 
         <article className="categories-list">
           <div className="category-container">

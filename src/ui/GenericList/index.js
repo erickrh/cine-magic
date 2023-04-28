@@ -28,7 +28,7 @@ function GenericList(props) {
                 onClick={() => navigate(`/details/${movie.id}`)}
                 className="movie-container">
                 <img
-                  src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                   className='movie-img'
                   alt={movie.title}
                 />
