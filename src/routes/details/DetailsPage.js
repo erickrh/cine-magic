@@ -7,9 +7,16 @@ import { CategoriesPreviewList } from '../../ui/CategoriesPreviewList';
 function DetailsPage() {
   const { movieId } = useParams();
   
-  const { movieDetails, getMovieDetails } = useMovieAPI();
+  const {
+    movieDetails,
+    similarMovies,
+    getMovieDetails,
+    getSimilarMovies
+  } = useMovieAPI();
+
   React.useEffect(() => {
     getMovieDetails(movieId);
+    getSimilarMovies(movieId);
     window.scrollTo(0, 0);
   }, []);
 
@@ -31,32 +38,21 @@ function DetailsPage() {
         )}
 
         <article className="relatedMovies-container">
-          <h2 className="relatedMovies-title">Películas similares</h2>
+          <h2 className="relatedMovies-title">Similar movies</h2>
 
           <div className="relatedMovies-scrollContainer">
-            <div className="movie-container">
-              <img
-                src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-                className="movie-img"
-                alt="Nombre de la película"
-              />
-            </div>
-        
-            <div className="movie-container">
-              <img
-                src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-                className="movie-img"
-                alt="Nombre de la película"
-              />
-            </div>
-        
-            <div className="movie-container">
-              <img
-                src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-                className="movie-img"
-                alt="Nombre de la película"
-              />
-            </div>
+            {similarMovies.map(movie => {
+              if (movie.poster_path) {
+                return (
+                  <div key={movie.id} className="movie-container">
+                    <img
+                      src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                      className="movie-img"
+                      alt="Movie name"
+                    />
+                  </div>
+                );
+              }})}
           </div>
         </article>
       </section>

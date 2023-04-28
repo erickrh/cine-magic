@@ -78,6 +78,12 @@ function useMovieAPI() {
     const { data: movie } = await api('movie/' + id);
     setMovieDetails(movie);
   };
+
+  const [similarMovies, setSimilarMovies] = React.useState([]);
+  const getSimilarMovies = async id => {
+    const { data } = await api(`/movie/${id}/similar`);
+    setSimilarMovies(data.results);
+  };
   
   return {
     loading,
@@ -87,9 +93,11 @@ function useMovieAPI() {
     categoryMovies,
     searchMovies,
     movieDetails,
+    similarMovies,
     getMoviesByCategory,
     getMoviesBySearch,
     getMovieDetails,
+    getSimilarMovies,
   };
 }
 
