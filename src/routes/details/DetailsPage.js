@@ -9,6 +9,7 @@ function DetailsPage() {
   const { movieDetails, getMovieDetails } = useMovieAPI();
   React.useEffect(() => {
     getMovieDetails(movieId);
+    window.scrollTo(0, 0);
   }, []);
 
   const backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%), url(https://image.tmdb.org/t/p/w500${movieDetails.poster_path})`;
