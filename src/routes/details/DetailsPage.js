@@ -1,5 +1,6 @@
 import React from 'react';
 import './DetailsPage.css';
+import { useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useMovieAPI } from '../../hooks/useMovieAPI';
@@ -8,6 +9,7 @@ import { CategoriesPreviewList } from '../../ui/CategoriesPreviewList';
 function DetailsPage() {
   const { movieId } = useParams();
   const navigate = useNavigate();
+  const scrollRef = useRef(null);
 
   const {
     movieDetails,
@@ -20,6 +22,7 @@ function DetailsPage() {
     getMovieDetails(movieId);
     getSimilarMovies(movieId);
     window.scrollTo(0, 0);
+    scrollRef.current.scrollTo(0, 0);
   }, [movieId]);
 
   const backgroundImage = `
@@ -48,7 +51,7 @@ function DetailsPage() {
         <article className='relatedMovies-container'>
           <h2 className='relatedMovies-title'>Similar movies</h2>
 
-          <div className='relatedMovies-scrollContainer'>
+          <div className='relatedMovies-scrollContainer' ref={scrollRef}>
             {similarMovies.map(movie => {
               if (movie.poster_path) {
                 return (
