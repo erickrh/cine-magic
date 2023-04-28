@@ -9,7 +9,7 @@ function TrendingPreview({ loading, error, trendingMovies, render }) {
   return (
     <section id='trendingPreview' className='trendingPreview-container'>
       <div className='trendingPreview-header'>
-        <h2 className='trendingPreview-title'>Tendencias</h2>
+        <h2 className='trendingPreview-title'>Trends</h2>
         <button
           onClick={() => navigate(
             '/trending',
@@ -18,7 +18,7 @@ function TrendingPreview({ loading, error, trendingMovies, render }) {
             }
           )}
           className='trendingPreview-btn'>
-            Ver más
+            See more
         </button>
       </div>
 

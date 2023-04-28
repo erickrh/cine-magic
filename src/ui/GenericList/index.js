@@ -42,7 +42,7 @@ function GenericList(props) {
         {props.loading && <h2>Cargando...</h2>}
 
         {(!props.movies.length && !props.error && !props.loading && triggerMsg) && (
-          <h2>No se encontraron peliculas de {props.title}.</h2>
+          <h2>No {props.title} movies found.</h2>
         )}
       </section>
     </>

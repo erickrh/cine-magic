@@ -15,7 +15,7 @@ function TrendingPage() {
   }
 
   return (
-    <GenericList title={'Tendencia'} movies={trends} />
+    <GenericList title={'Trends'} movies={trends} />
   );
 }
 

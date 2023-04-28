@@ -8,7 +8,7 @@ function CategoriesPreview({ genres }) {
 
   return (
     <section id='categoriesPreview' className='categoriesPreview-container'>
-      <h2 className='categoriesPreview-title'>Categorías</h2>
+      <h2 className='categoriesPreview-title'>Categories</h2>
 
       <article className='categoriesPreview-list'>
         {genres.map(genre => (

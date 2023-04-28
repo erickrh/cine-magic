@@ -19,7 +19,7 @@ function Header() {
     if (inputSearchMovie.length > 0) {
       navigate(`/search/${inputSearchMovie}`);
     } else {
-      inputPlaceholder.placeholder = 'Upss, olvidaste el nombre!';
+      inputPlaceholder.placeholder = 'Oops, you forgot the name!';
     }
     event.preventDefault();
   };
