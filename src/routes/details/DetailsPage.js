@@ -2,6 +2,7 @@ import React from 'react';
 import './DetailsPage.css';
 import { useParams } from 'react-router-dom';
 import { useMovieAPI } from '../../hooks/useMovieAPI';
+import { CategoriesPreviewList } from '../../ui/CategoriesPreviewList';
 
 function DetailsPage() {
   const { movieId } = useParams();
@@ -25,19 +26,9 @@ function DetailsPage() {
         <span className="movieDetail-score">{movieDetails.vote_average}</span>
         <p className="movieDetail-description">{movieDetails.overview}</p>
 
-        <article className="categories-list">
-          <div className="category-container">
-            <h3 id="id28" className="category-title">Romance</h3>
-          </div>
-
-          <div className="category-container">
-            <h3 id="id16" className="category-title">Drama</h3>
-          </div>
-
-          <div className="category-container">
-            <h3 id="id14" className="category-title">Acción</h3>
-          </div>
-        </article>
+        {movieDetails.genres && (
+          <CategoriesPreviewList genres={movieDetails.genres} />
+        )}
 
         <article className="relatedMovies-container">
           <h2 className="relatedMovies-title">Películas similares</h2>

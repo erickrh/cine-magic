@@ -4,6 +4,7 @@ import { TrendingPreview } from '../../ui/TrendingPreview';
 import { CategoriesPreview } from '../../ui/CategoriesPreview';
 import { useMovieAPI } from '../../hooks/useMovieAPI';
 import { MovieList } from '../../ui/MovieList';
+import { CategoriesPreviewList } from '../../ui/CategoriesPreviewList';
 
 function HomePage() {
   const {
@@ -31,7 +32,9 @@ function HomePage() {
         )}
       />
 
-      <CategoriesPreview genres={genres} />
+      <CategoriesPreview>
+        <CategoriesPreviewList genres={genres} />
+      </CategoriesPreview>
     </>
   );
 }
