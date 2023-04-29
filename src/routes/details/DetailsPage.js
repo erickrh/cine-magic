@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../index.css';
 import './DetailsPage.css';
 import { useRef } from 'react';
 import { useParams } from 'react-router-dom';
@@ -32,6 +33,12 @@ function DetailsPage() {
 
   return (
     <>
+      <span
+        onClick={() => navigate(-1)}
+        className='header-arrow-details'>
+          &lt;
+      </span>
+
       {movieDetails.poster_path && (
         <header
           style={{ backgroundImage: backgroundImage }}
