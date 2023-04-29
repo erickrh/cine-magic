@@ -5,6 +5,7 @@ import { CategoriesPreview } from '../../ui/CategoriesPreview';
 import { useMovieAPI } from '../../hooks/useMovieAPI';
 import { MovieList } from '../../ui/MovieList';
 import { CategoriesPreviewList } from '../../ui/CategoriesPreviewList';
+import { Footer } from '../../ui/Footer';
 
 function HomePage() {
   const {
@@ -35,6 +36,8 @@ function HomePage() {
       <CategoriesPreview>
         <CategoriesPreviewList genres={genres} />
       </CategoriesPreview>
+
+      <Footer />
     </>
   );
 }
