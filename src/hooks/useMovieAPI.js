@@ -29,14 +29,17 @@ function useMovieAPI() {
   }, []);
 
   const [genres, setGenres] = React.useState([]);
+  const [loadingCategoriesPreview, setLoadingCategoriesPreview] = React.useState(false);
   React.useEffect(() => {
     const getCategoriesPreview = async () => {
       try {
+        setLoadingCategoriesPreview(true);
         const { data } = await api('genre/movie/list');
         setGenres(data.genres);
       } catch (e) {
         setError(e);
       }
+      setLoadingCategoriesPreview(false);
     };
     getCategoriesPreview();
   }, []);
@@ -94,6 +97,7 @@ function useMovieAPI() {
     searchMovies,
     movieDetails,
     similarMovies,
+    loadingCategoriesPreview,
     getMoviesByCategory,
     getMoviesBySearch,
     getMovieDetails,

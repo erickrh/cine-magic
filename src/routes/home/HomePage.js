@@ -7,6 +7,7 @@ import { MovieList } from '../../ui/MovieList';
 import { CategoriesPreviewList } from '../../ui/CategoriesPreviewList';
 import { Footer } from '../../ui/Footer';
 import { OnLoadingTrending } from '../../ui/OnLoadingTrending';
+import { Onloadingcategories } from '../../ui/Onloadingcategories';
 
 function HomePage() {
   const {
@@ -14,6 +15,7 @@ function HomePage() {
     error,
     trendingMovies,
     genres,
+    loadingCategoriesPreview,
   } = useMovieAPI();
 
   return (
@@ -35,7 +37,10 @@ function HomePage() {
         )}
       />
 
-      <CategoriesPreview>
+      <CategoriesPreview
+        loading={loadingCategoriesPreview}
+        OnLoading={() => <Onloadingcategories />}
+      >
         <CategoriesPreviewList genres={genres} />
       </CategoriesPreview>
 

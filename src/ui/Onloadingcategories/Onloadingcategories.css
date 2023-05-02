@@ -1,0 +1,40 @@
+.Onloadingcategories {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.skeletonContainer {
+  margin-bottom: 0.5em;
+  display: flex;
+  align-items: center;
+}
+
+.boxCategory {
+  background-color: #C5D1D9;
+  border-radius: 0.4em;
+  width: 1.3em;
+  height: 1.3em;
+}
+
+.nameSkeleton {
+  background-color: #C5D1D9;
+  width: 6.5em;
+  height: 0.6em;
+  border-radius: 8px;
+  margin-left: 0.5em;
+}
+
+.boxCategory, .nameSkeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
