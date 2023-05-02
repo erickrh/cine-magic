@@ -6,6 +6,7 @@ import { useMovieAPI } from '../../hooks/useMovieAPI';
 import { MovieList } from '../../ui/MovieList';
 import { CategoriesPreviewList } from '../../ui/CategoriesPreviewList';
 import { Footer } from '../../ui/Footer';
+import { OnLoadingTrending } from '../../ui/OnLoadingTrending';
 
 function HomePage() {
   const {
@@ -23,6 +24,7 @@ function HomePage() {
         loading={loading}
         error={error}
         trendingMovies={trendingMovies}
+        onLoading={() => <OnLoadingTrending />}
         render={movie => (
           <MovieList
             key={movie.id}

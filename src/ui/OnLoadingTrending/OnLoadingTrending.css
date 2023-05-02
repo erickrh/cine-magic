@@ -1,0 +1,23 @@
+.tredingSkeleton {
+  display: inline-block;
+  height: 225px;
+  min-height: 225px;
+  max-height: 225px;
+  width: 150px;
+  min-width: 150px;
+  max-width: 150px;
+  background-color: #C5D1D9;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin-right: 0.5em;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
