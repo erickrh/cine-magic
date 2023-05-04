@@ -6,7 +6,7 @@ function Onloadingcategories() {
     <div className='Onloadingcategories'>
       {new Array(19)
         .fill(1)
-        .map((item, index) =>
+        .map((_, index) =>
           <div key={index} className='skeletonContainer'>
             <div className="boxCategory"></div>
             <div className='nameSkeleton'></div>  
