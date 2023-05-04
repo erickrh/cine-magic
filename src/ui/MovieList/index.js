@@ -12,9 +12,11 @@ function MovieList({ id, title, image }) {
         onClick={() => navigate(`/details/${id}`)}
         className='movie-container'>
         <img
-          src={`https://image.tmdb.org/t/p/w300/${image}`}
+          src=''
+          data-src={`https://image.tmdb.org/t/p/w300/${image}`}
           className='movie-img'
           alt={title}
+          loading='lazy'
         />
       </div>
     </>
