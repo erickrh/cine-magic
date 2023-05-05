@@ -16,6 +16,7 @@ function MovieList({ id, title, image }) {
         if (entry.isIntersecting) {
           const img = entry.target;
           img.src = img.dataset.src;
+          img.classList.add('animation');
           observer.unobserve(entry.target);
         }
       });
