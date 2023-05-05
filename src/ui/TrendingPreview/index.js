@@ -11,31 +11,31 @@ function TrendingPreview({
   onLoading,
 }) {
   const navigate = useNavigate();
-  const observerRef = React.useRef(null);
+  // const observerRef = React.useRef(null);
   
-  React.useEffect(() => {
-    if (observerRef.current) observerRef.current.disconnect();
+  // React.useEffect(() => {
+  //   if (observerRef.current) observerRef.current.disconnect();
 
-    observerRef.current = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target.querySelector('img');
-          img.src = img.dataset.src;
-          console.log(entry.target);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      rootMargin: '-30px',
-    });
+  //   observerRef.current = new IntersectionObserver((entries, observer) => {
+  //     entries.forEach(entry => {
+  //       if (entry.isIntersecting) {
+  //         const img = entry.target.querySelector('img');
+  //         img.src = img.dataset.src;
+  //         console.log(entry.target);
+  //         observer.unobserve(entry.target);
+  //       }
+  //     });
+  //   }, {
+  //     rootMargin: '-30px',
+  //   });
 
-    const images = document.querySelectorAll('.movie-container');
-    images.forEach(img => observerRef.current.observe(img));
+  //   const images = document.querySelectorAll('.movie-container');
+  //   images.forEach(img => observerRef.current.observe(img));
 
-    return () => {
-      if (observerRef.current) observerRef.current.disconnect();
-    };
-  }, [trendingMovies]);
+  //   return () => {
+  //     if (observerRef.current) observerRef.current.disconnect();
+  //   };
+  // }, [trendingMovies]);
 
   return (
     <section id='trendingPreview' className='trendingPreview-container'>
