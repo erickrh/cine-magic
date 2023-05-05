@@ -31,4 +31,10 @@
   width: 150px;
   min-width: 150px;
   max-width: 150px;
+  animation: slide-up 0.5s forwards;
+}
+
+@keyframes slide-up {
+  from {margin-top: 100px;}
+  to {margin-bottom: 0;}
 }

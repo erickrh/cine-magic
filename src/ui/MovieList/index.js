@@ -20,7 +20,7 @@ function MovieList({ id, title, image }) {
         }
       });
     }, {
-      rootMargin: '-30px',
+      // rootMargin: '-30px',
     });
 
     observerRef.current.observe(imagesMovies.current);
