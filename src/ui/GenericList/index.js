@@ -45,6 +45,13 @@ function GenericList(props) {
           <h2>No {props.title} movies found.</h2>
         )}
       </section>
+
+      <button
+        onClick={props.getPaginatedTredingMovies}
+        type='button'
+      >
+        Cargar más
+      </button>
     </>
   );
 }

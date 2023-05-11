@@ -28,6 +28,25 @@ function useMovieAPI() {
     getTrendingMoviesPreview();
   }, []);
 
+  const [paginatedTrendingMovies, setPaginatedTrendingMovies] = React.useState([]);
+  const [page, setPage] = React.useState(1);
+  const getPaginatedTredingMovies = async () => {
+    setPage(page + 1);
+    try {
+      setLoading(true);
+      const { data } = await api('trending/movie/day', {
+        params: {
+          page: page + 1,
+        }
+      });
+      setPaginatedTrendingMovies(data.results);
+      // console.log(data);
+    } catch (e) {
+      setError(e);
+    }
+    setLoading(false);
+  };
+
   const [genres, setGenres] = React.useState([]);
   const [loadingCategoriesPreview, setLoadingCategoriesPreview] = React.useState(false);
   React.useEffect(() => {
@@ -98,10 +117,12 @@ function useMovieAPI() {
     movieDetails,
     similarMovies,
     loadingCategoriesPreview,
+    paginatedTrendingMovies,
     getMoviesByCategory,
     getMoviesBySearch,
     getMovieDetails,
     getSimilarMovies,
+    getPaginatedTredingMovies,
   };
 }
 

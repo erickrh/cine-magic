@@ -5,17 +5,26 @@ import { useMovieAPI } from '../../hooks/useMovieAPI';
 
 function TrendingPage() {
   const location = useLocation();
-  const { trendingMovies } = useMovieAPI();
-
+  const { trendingMovies, paginatedTrendingMovies, getPaginatedTredingMovies } = useMovieAPI();
+  
   let trends;
   if (location.state?.trendingMovies) {
     trends = location.state.trendingMovies;
   } else {
     trends = trendingMovies;
   }
+  
+  const [allMovies, setAllMovies] = React.useState(trends);
+  React.useEffect(() => {
+    if (paginatedTrendingMovies.length) {
+      // console.log(paginatedTrendingMovies);
+      const updatedTrends = [...allMovies, ...paginatedTrendingMovies];
+      setAllMovies(updatedTrends);
+    }
+  }, [paginatedTrendingMovies]);
 
   return (
-    <GenericList title={'Trends'} movies={trends} />
+    <GenericList title={'Trends'} movies={allMovies} getPaginatedTredingMovies={getPaginatedTredingMovies} />
   );
 }
 
