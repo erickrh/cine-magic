@@ -29,21 +29,20 @@ function useMovieAPI() {
   }, []);
 
   const [paginatedTrendingMovies, setPaginatedTrendingMovies] = React.useState([]);
-  const [page, setPage] = React.useState(1);
+  const [page, setPage] = React.useState(2);
   const getPaginatedTredingMovies = async () => {
-    setPage(page + 1);
     try {
       setLoading(true);
       const { data } = await api('trending/movie/day', {
         params: {
-          page: page + 1,
+          page: page,
         }
       });
       setPaginatedTrendingMovies(data.results);
-      // console.log(data);
     } catch (e) {
       setError(e);
     }
+    setPage(page + 1);
     setLoading(false);
   };
 

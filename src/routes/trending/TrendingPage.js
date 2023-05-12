@@ -17,7 +17,6 @@ function TrendingPage() {
   const [allMovies, setAllMovies] = React.useState(trends);
   React.useEffect(() => {
     if (paginatedTrendingMovies.length) {
-      // console.log(paginatedTrendingMovies);
       const updatedTrends = [...allMovies, ...paginatedTrendingMovies];
       setAllMovies(updatedTrends);
     }
