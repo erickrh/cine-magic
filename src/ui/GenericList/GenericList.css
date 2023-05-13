@@ -13,9 +13,14 @@
 
 .genericList-container .movie-img {
   width: 100%;
-  animation: fadeIn;
 }
 
-.fadeIn {
+.movie-img {
+  opacity: 0;
+  animation: fadeIn 1s linear forwards;
+}
 
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }
