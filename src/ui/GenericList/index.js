@@ -59,7 +59,7 @@ function GenericList(props) {
             >
               <img
                 src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                className="movie-img"
+                className="movie-img movieScrollAnimation"
                 alt={movie.title}
               />
             </div>
