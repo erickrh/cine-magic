@@ -23,7 +23,6 @@ function GenericList(props) {
     observerRef.current = new IntersectionObserver((entry, observer) => {
       if (entry[0].isIntersecting) {
         props.getPaginatedTredingMovies();
-        console.log('work');
         observer.unobserve(entry[0].target);
       }
     });
