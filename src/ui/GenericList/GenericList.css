@@ -13,4 +13,9 @@
 
 .genericList-container .movie-img {
   width: 100%;
+  animation: fadeIn;
+}
+
+.fadeIn {
+
 }

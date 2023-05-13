@@ -8,13 +8,32 @@ import { useNavigate } from 'react-router-dom';
 function GenericList(props) {
   const navigate = useNavigate();
   const [triggerMsg, setTriggerMsg] = React.useState(false);
+  const observerRef = React.useRef();
+  const scrollEnd = React.useRef();
+
 
   React.useEffect(() => {
     const counter = setTimeout(() => {
       setTriggerMsg(true);
       clearTimeout(counter);
     }, 500);
-  }, []);
+
+    if (observerRef.current) observerRef.current.disconnect();
+
+    observerRef.current = new IntersectionObserver((entry, observer) => {
+      if (entry[0].isIntersecting) {
+        props.getPaginatedTredingMovies();
+        console.log('work');
+        observer.unobserve(entry[0].target);
+      }
+    });
+
+    observerRef.current.observe(scrollEnd.current);
+
+    return () => {
+      if (observerRef.current) observerRef.current.disconnect();
+    };
+  }, [props.movies]);
 
   const uniqueMovieIds = new Set();
   const filteredMovies = props.movies.filter(movie => {
@@ -54,11 +73,9 @@ function GenericList(props) {
         {!props.movies.length && !props.error && !props.loading && triggerMsg && (
           <h2>No {props.title} movies found.</h2>
         )}
-      </section>
 
-      <button onClick={props.getPaginatedTredingMovies} type="button">
-        Cargar más
-      </button>
+        <span ref={scrollEnd}></span>
+      </section>
     </>
   );
 }
