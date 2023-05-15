@@ -16,7 +16,7 @@ function GenericList(props) {
     const counter = setTimeout(() => {
       setTriggerMsg(true);
       clearTimeout(counter);
-    }, 500);
+    }, 1000);
 
     if (observerRef.current) observerRef.current.disconnect();
 
