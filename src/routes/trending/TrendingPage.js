@@ -21,7 +21,7 @@ function TrendingPage() {
       setAllMovies(updatedTrends);
     }
   }, [paginatedTrendingMovies]);
-
+  
   return (
     <GenericList title={'Trends'} movies={allMovies} getPaginatedMovies={getPaginatedTredingMovies} />
   );

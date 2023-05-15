@@ -29,7 +29,7 @@ function useMovieAPI() {
   }, []);
 
   const [paginatedTrendingMovies, setPaginatedTrendingMovies] = React.useState([]);
-  const [page, setPage] = React.useState(2);
+  const [page, setPage] = React.useState(1);
   const getPaginatedTredingMovies = async () => {
     try {
       setLoading(true);
@@ -79,7 +79,7 @@ function useMovieAPI() {
   };
 
   const [paginatedCategoryMovies, setPaginatedCategoryMovies] = React.useState([]);
-  const [pageCategory, setPageCategory] = React.useState(2);
+  const [pageCategory, setPageCategory] = React.useState(1);
   const getPaginatedMoviesByCategory = async id => {
     try {
       const { data } = await api('discover/movie', {
@@ -92,7 +92,7 @@ function useMovieAPI() {
     } catch (e) {
       setError(e);
     }
-    setPageCategory( pageCategory + 1);
+    setPageCategory(pageCategory + 1);
   };
 
   const [searchMovies, setSearchMovies] = React.useState([]);

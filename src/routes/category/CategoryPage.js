@@ -8,8 +8,8 @@ function CategoryPage() {
     loading,
     error,
     categoryMovies,
-    getMoviesByCategory,
     paginatedCategoryMovies,
+    getMoviesByCategory,
     getPaginatedMoviesByCategory,
   } = useMovieAPI();
 
@@ -37,14 +37,14 @@ function CategoryPage() {
       setAllMovies(updatedCategoriesMovies);
     }
   }, [paginatedCategoryMovies]);
-
+  
   return (
     <GenericList
       title={name}
       movies={allMovies}
       error={error}
       loading={loading}
-      getPaginatedMovies={getPaginatedMoviesByCategory}
+      getPaginatedMovies={() => getPaginatedMoviesByCategory(id)}
     />
   );
 }
