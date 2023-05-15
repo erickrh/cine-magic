@@ -22,7 +22,7 @@ function GenericList(props) {
 
     observerRef.current = new IntersectionObserver((entry, observer) => {
       if (entry[0].isIntersecting) {
-        props.getPaginatedTredingMovies();
+        props.getPaginatedMovies();
         observer.unobserve(entry[0].target);
       }
     });

@@ -9,6 +9,8 @@ function CategoryPage() {
     error,
     categoryMovies,
     getMoviesByCategory,
+    paginatedCategoryMovies,
+    getPaginatedMoviesByCategory,
   } = useMovieAPI();
 
   const location = useLocation();
@@ -28,12 +30,21 @@ function CategoryPage() {
     getMoviesByCategory(id);
   }, []);
 
+  const [allMovies, setAllMovies] = React.useState(categoryMovies);
+  React.useEffect(() => {
+    if (paginatedCategoryMovies.length) {
+      const updatedCategoriesMovies = [...allMovies, ...paginatedCategoryMovies];
+      setAllMovies(updatedCategoriesMovies);
+    }
+  }, [paginatedCategoryMovies]);
+
   return (
     <GenericList
       title={name}
-      movies={categoryMovies}
+      movies={allMovies}
       error={error}
       loading={loading}
+      getPaginatedMovies={getPaginatedMoviesByCategory}
     />
   );
 }

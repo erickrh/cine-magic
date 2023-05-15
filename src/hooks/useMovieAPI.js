@@ -78,6 +78,23 @@ function useMovieAPI() {
     setLoading(false);
   };
 
+  const [paginatedCategoryMovies, setPaginatedCategoryMovies] = React.useState([]);
+  const [pageCategory, setPageCategory] = React.useState(2);
+  const getPaginatedMoviesByCategory = async id => {
+    try {
+      const { data } = await api('discover/movie', {
+        params: {
+          with_genres: id,
+          page: pageCategory,
+        },
+      });
+      setPaginatedCategoryMovies(data.results);
+    } catch (e) {
+      setError(e);
+    }
+    setPageCategory( pageCategory + 1);
+  };
+
   const [searchMovies, setSearchMovies] = React.useState([]);
   const getMoviesBySearch = async query => {
     try {
@@ -117,11 +134,13 @@ function useMovieAPI() {
     similarMovies,
     loadingCategoriesPreview,
     paginatedTrendingMovies,
+    paginatedCategoryMovies,
     getMoviesByCategory,
     getMoviesBySearch,
     getMovieDetails,
     getSimilarMovies,
     getPaginatedTredingMovies,
+    getPaginatedMoviesByCategory,
   };
 }
 
