@@ -73,7 +73,7 @@ function GenericList(props) {
           <h2>No {props.title} movies found.</h2>
         )}
 
-        <span ref={scrollEnd}></span>
+        <span className='scrollEnd' ref={scrollEnd}></span>
       </section>
     </>
   );
