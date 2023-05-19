@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { GenericList } from '../../ui/GenericList';
 import { useParams } from 'react-router-dom';
@@ -15,17 +16,19 @@ function SearchPage() {
     getMoviesBySearch,
     getPaginatedMoviesBySearch,
   } = useMovieAPI();
+  
+  const [allMovies, setAllMovies] = React.useState(searchMovies);
 
   React.useEffect(() => {
     getMoviesBySearch(query);
+    setAllMovies([]);
   }, [query]);
-
-  const [allMovies, setAllMovies] = React.useState(searchMovies);
+  
   React.useEffect(() => {
     const updateSearchMovies = [...allMovies, ...paginatedMoviesBySearch];
     setAllMovies(updateSearchMovies);
   }, [paginatedMoviesBySearch]);
-
+  
   return (
     <>
       <Header />

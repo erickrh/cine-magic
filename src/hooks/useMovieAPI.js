@@ -96,13 +96,14 @@ function useMovieAPI() {
   };
 
   const [searchMovies, setSearchMovies] = React.useState([]);
+  const [pageSearch, setPageSearch] = React.useState(1);
   const getMoviesBySearch = async query => {
     try {
+      setPageSearch(1);
       setLoading(true);
       const { data } = await api('/search/movie', {
         params: {
           query,
-          page: pageSearch,
         },
       });
       setSearchMovies(data.results);
@@ -113,10 +114,8 @@ function useMovieAPI() {
   };
 
   const [paginatedMoviesBySearch, setPaginatedMoviesBySearch] = React.useState([]);
-  const [pageSearch, setPageSearch] = React.useState(1);
   const getPaginatedMoviesBySearch = async query => {
     try {
-      setPageSearch(pageSearch + 1);
       const { data } = await api('/search/movie', {
         params: {
           query,
@@ -127,6 +126,7 @@ function useMovieAPI() {
     } catch (e) {
       setError(e);
     }
+    setPageSearch(pageSearch + 1);
   };
 
   const [movieDetails, setMovieDetails] = React.useState({});
@@ -161,6 +161,7 @@ function useMovieAPI() {
     getPaginatedTredingMovies,
     getPaginatedMoviesByCategory,
     getPaginatedMoviesBySearch,
+    setPageSearch,
   };
 }
 
