@@ -102,6 +102,7 @@ function useMovieAPI() {
       const { data } = await api('/search/movie', {
         params: {
           query,
+          page: pageSearch,
         },
       });
       setSearchMovies(data.results);
@@ -109,6 +110,23 @@ function useMovieAPI() {
       setError(e);
     }
     setLoading(false);
+  };
+
+  const [paginatedMoviesBySearch, setPaginatedMoviesBySearch] = React.useState([]);
+  const [pageSearch, setPageSearch] = React.useState(1);
+  const getPaginatedMoviesBySearch = async query => {
+    try {
+      setPageSearch(pageSearch + 1);
+      const { data } = await api('/search/movie', {
+        params: {
+          query,
+          page: pageSearch,
+        },
+      });
+      setPaginatedMoviesBySearch(data.results);
+    } catch (e) {
+      setError(e);
+    }
   };
 
   const [movieDetails, setMovieDetails] = React.useState({});
@@ -135,12 +153,14 @@ function useMovieAPI() {
     loadingCategoriesPreview,
     paginatedTrendingMovies,
     paginatedCategoryMovies,
+    paginatedMoviesBySearch,
     getMoviesByCategory,
     getMoviesBySearch,
     getMovieDetails,
     getSimilarMovies,
     getPaginatedTredingMovies,
     getPaginatedMoviesByCategory,
+    getPaginatedMoviesBySearch,
   };
 }
 

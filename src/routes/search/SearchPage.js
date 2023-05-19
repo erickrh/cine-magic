@@ -11,12 +11,20 @@ function SearchPage() {
     loading,
     error,
     searchMovies,
+    paginatedMoviesBySearch,
     getMoviesBySearch,
+    getPaginatedMoviesBySearch,
   } = useMovieAPI();
 
   React.useEffect(() => {
     getMoviesBySearch(query);
   }, [query]);
+
+  const [allMovies, setAllMovies] = React.useState(searchMovies);
+  React.useEffect(() => {
+    const updateSearchMovies = [...allMovies, ...paginatedMoviesBySearch];
+    setAllMovies(updateSearchMovies);
+  }, [paginatedMoviesBySearch]);
 
   return (
     <>
@@ -25,7 +33,9 @@ function SearchPage() {
         loading={loading}
         error={error}
         title={query}
-        movies={searchMovies} />
+        movies={allMovies}
+        getPaginatedMovies={() => getPaginatedMoviesBySearch(query)}
+      />
     </>
   );
 }
