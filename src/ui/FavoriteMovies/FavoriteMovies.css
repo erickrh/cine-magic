@@ -53,7 +53,7 @@
 }
 
 .like-btn--liked::before {
-  content: '💜';
+  content: '💔';
   font-size: 19px;
 }
 
