@@ -1,0 +1,75 @@
+.favoriteMovies-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.seeMoreFavoriteMovies-btn {
+  border-radius: 8px;
+  height: 32px;
+  width: 7em;
+}
+
+.favoriteMovies-movieList {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  height: 241px;
+  padding-left: 24px;
+  padding-bottom: 16px;
+}
+
+.favoriteMovies-movieList .movie-container {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.favoriteMovies-movieList .movie-container .movie-img {
+  height: 225px;
+  min-height: 225px;
+  max-height: 225px;
+  width: 150px;
+  min-width: 150px;
+  max-width: 150px;
+}
+
+.like-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  height: 40px;
+  width: 40px;
+  z-index: 10;
+  border-radius: 100%;
+}
+
+.like-btn::before {
+  content: '🤍';
+  font-size: 19px;
+}
+
+.like-btn--liked {
+  background-color: white;
+}
+
+.like-btn--liked::before {
+  content: '💜';
+  font-size: 19px;
+}
+
+
+.animation {
+  animation: slide-up 0.5s forwards;
+}
+
+@keyframes slide-up {
+  from {
+    position: relative;
+    top: 100px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}

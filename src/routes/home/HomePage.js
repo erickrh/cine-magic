@@ -8,6 +8,7 @@ import { CategoriesPreviewList } from '../../ui/CategoriesPreviewList';
 import { Footer } from '../../ui/Footer';
 import { OnLoadingTrending } from '../../ui/OnLoadingTrending';
 import { Onloadingcategories } from '../../ui/Onloadingcategories';
+import { FavoriteMovies } from '../../ui/FavoriteMovies';
 
 function HomePage() {
   const {
@@ -43,6 +44,12 @@ function HomePage() {
       >
         <CategoriesPreviewList genres={genres} />
       </CategoriesPreview>
+
+      <FavoriteMovies
+        loading={loading}
+        error={error}
+        onLoading={() => <OnLoadingTrending />}
+      />
 
       <Footer />
     </>
