@@ -40,6 +40,8 @@ function HomePage() {
             id={movie.id}
             title={movie.title}
             image={movie.poster_path}
+            isLike={isLike}
+            handleLikeClick={handleLikeClick}
           />
         )}
       />
@@ -52,9 +54,9 @@ function HomePage() {
       </CategoriesPreview>
 
       <FavoriteMovies
+        loading={loading}
         isLike={isLike}
         handleLikeClick={handleLikeClick}
-        loading={loading}
         error={error}
         onLoading={() => <OnLoadingTrending />}
       />

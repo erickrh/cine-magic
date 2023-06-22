@@ -3,7 +3,13 @@ import '../../routes/App.css';
 import '../TrendingPreview/TrendingPreview.css';
 import { useNavigate } from 'react-router-dom';
 
-function MovieList({ id, title, image }) {
+function MovieList({
+  id,
+  title,
+  image,
+  isLike,
+  handleLikeClick,
+}) {
   const navigate = useNavigate();
   const observerRef = React.useRef(null);
   const imagesMovies = React.useRef(null);
@@ -44,6 +50,7 @@ function MovieList({ id, title, image }) {
           alt={title}
           loading='lazy'
         />
+        <button onClick={handleLikeClick} type="button" className={isLike ? 'like-btn like-btn--liked' : 'like-btn'}></button>
       </div>
     </>
   );
