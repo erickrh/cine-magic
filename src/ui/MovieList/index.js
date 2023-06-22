@@ -2,14 +2,9 @@ import React from 'react';
 import '../../routes/App.css';
 import '../TrendingPreview/TrendingPreview.css';
 import { useNavigate } from 'react-router-dom';
+import { LikeButton } from '../LikeButton';
 
-function MovieList({
-  id,
-  title,
-  image,
-  isLike,
-  handleLikeClick,
-}) {
+function MovieList({ id, title, image }) {
   const navigate = useNavigate();
   const observerRef = React.useRef(null);
   const imagesMovies = React.useRef(null);
@@ -50,7 +45,7 @@ function MovieList({
           alt={title}
           loading='lazy'
         />
-        <button onClick={e => handleLikeClick(e)} type="button" className={isLike ? 'like-btn like-btn--liked' : 'like-btn'}></button>
+        <LikeButton />
       </div>
     </>
   );
