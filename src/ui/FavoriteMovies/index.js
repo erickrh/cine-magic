@@ -6,13 +6,10 @@ function FavoriteMovies({
   error,
   loading,
   onLoading,
+  isLike,
+  handleLikeClick,
   // render,
 }) {
-  const [isLike, setIsLike] = React.useState(false);
-
-  const handleLikeClick = () => {
-    setIsLike(!isLike);
-  };
 
   return (
     <section className='favoriteMovies'>
