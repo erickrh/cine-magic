@@ -27,3 +27,27 @@
   position: relative;
   flex-wrap: wrap;
 }
+
+.like-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  height: 40px;
+  width: 40px;
+  z-index: 10;
+  border-radius: 100%;
+}
+
+.like-btn::before {
+  content: '🤍';
+  font-size: 19px;
+}
+
+.like-btn--liked {
+  background-color: white;
+}
+
+.like-btn--liked::before {
+  content: '💔';
+  font-size: 19px;
+}
