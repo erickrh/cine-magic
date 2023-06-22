@@ -50,7 +50,7 @@ function MovieList({
           alt={title}
           loading='lazy'
         />
-        <button onClick={handleLikeClick} type="button" className={isLike ? 'like-btn like-btn--liked' : 'like-btn'}></button>
+        <button onClick={e => handleLikeClick(e)} type="button" className={isLike ? 'like-btn like-btn--liked' : 'like-btn'}></button>
       </div>
     </>
   );
