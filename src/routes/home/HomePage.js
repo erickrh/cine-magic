@@ -9,7 +9,6 @@ import { Footer } from '../../ui/Footer';
 import { OnLoadingTrending } from '../../ui/OnLoadingTrending';
 import { Onloadingcategories } from '../../ui/Onloadingcategories';
 import { FavoriteMovies } from '../../ui/FavoriteMovies';
-import { LikeButton } from '../../ui/LikeButton';
 
 function HomePage() {
   const {
@@ -19,11 +18,6 @@ function HomePage() {
     genres,
     loadingCategoriesPreview,
   } = useMovieAPI();
-
-  const {
-    isLike,
-    handleLikeClick
-  } = LikeButton();
 
   return (
     <>
@@ -40,8 +34,6 @@ function HomePage() {
             id={movie.id}
             title={movie.title}
             image={movie.poster_path}
-            isLike={isLike}
-            handleLikeClick={handleLikeClick}
           />
         )}
       />
@@ -55,8 +47,6 @@ function HomePage() {
 
       <FavoriteMovies
         loading={loading}
-        isLike={isLike}
-        handleLikeClick={handleLikeClick}
         error={error}
         onLoading={() => <OnLoadingTrending />}
       />

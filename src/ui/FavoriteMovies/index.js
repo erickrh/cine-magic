@@ -1,14 +1,12 @@
 import React from 'react';
 import './FavoriteMovies.css';
 import '../../routes/App.css';
+import { LikeButton } from '../LikeButton';
 
 function FavoriteMovies({
   error,
   loading,
   onLoading,
-  isLike,
-  handleLikeClick,
-  // render,
 }) {
 
   return (
@@ -35,9 +33,28 @@ function FavoriteMovies({
             className='movie-img animation'
             loading='lazy'
           />
-          <button onClick={handleLikeClick} type="button" className={isLike ? 'like-btn like-btn--liked' : 'like-btn'}></button>
+          <LikeButton />
         </div>
 
+        <div
+          className='movie-container'>
+          <img
+            src={`https://image.tmdb.org/t/p/w300/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg`}
+            className='movie-img animation'
+            loading='lazy'
+          />
+          <LikeButton />
+        </div>
+
+        <div
+          className='movie-container'>
+          <img
+            src={`https://image.tmdb.org/t/p/w300/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg`}
+            className='movie-img animation'
+            loading='lazy'
+          />
+          <LikeButton />
+        </div>
       </article>
     </section>
   );

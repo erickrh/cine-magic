@@ -8,10 +8,9 @@ function LikeButton() {
     e.stopPropagation();
   };
 
-  return {
-    isLike,
-    handleLikeClick,
-  };
+  return (
+    <button onClick={handleLikeClick} type="button" className={isLike ? 'like-btn like-btn--liked' : 'like-btn'}></button>
+  );
 }
 
 export { LikeButton };
