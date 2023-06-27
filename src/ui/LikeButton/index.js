@@ -1,10 +1,13 @@
 import React from 'react';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 
-function LikeButton() {
+function LikeButton({ movie }) {
   const [isLike, setIsLike] = React.useState(false);
-
+  const { likeMovie } = useLocalStorage();
+  
   const handleLikeClick = e => {
     setIsLike(!isLike);
+    likeMovie(movie);
     e.stopPropagation();
   };
 

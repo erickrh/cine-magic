@@ -18,7 +18,7 @@ function HomePage() {
     genres,
     loadingCategoriesPreview,
   } = useMovieAPI();
-
+  
   return (
     <>
       <Header />
@@ -33,6 +33,7 @@ function HomePage() {
             key={movie.id}
             id={movie.id}
             title={movie.title}
+            movie={movie}
             image={movie.poster_path}
           />
         )}

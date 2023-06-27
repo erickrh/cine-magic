@@ -15,13 +15,13 @@ function useLocalStorage() {
   const likeMovie = movie => {
     const likedMovies = likedMovieList();
 
-    if (likeMovie[movie.id]) likedMovies[movie.id] = undefined;
+    if (movie.id in likedMovies) likedMovies[movie.id] = undefined;
     else likedMovies[movie.id] = movie;
 
     localStorage.setItem('liked_movies', JSON.stringify(likedMovies));
   };
 
-  return likeMovie;
+  return { likeMovie };
 }
 
 export { useLocalStorage };

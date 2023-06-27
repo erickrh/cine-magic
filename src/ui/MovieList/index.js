@@ -4,7 +4,7 @@ import '../TrendingPreview/TrendingPreview.css';
 import { useNavigate } from 'react-router-dom';
 import { LikeButton } from '../LikeButton';
 
-function MovieList({ id, title, image }) {
+function MovieList({ id, title, image, movie }) {
   const navigate = useNavigate();
   const observerRef = React.useRef(null);
   const imagesMovies = React.useRef(null);
@@ -45,7 +45,7 @@ function MovieList({ id, title, image }) {
           alt={title}
           loading='lazy'
         />
-        <LikeButton />
+        <LikeButton movie={movie} />
       </div>
     </>
   );
