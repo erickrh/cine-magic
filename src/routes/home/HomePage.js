@@ -9,6 +9,8 @@ import { Footer } from '../../ui/Footer';
 import { OnLoadingTrending } from '../../ui/OnLoadingTrending';
 import { Onloadingcategories } from '../../ui/Onloadingcategories';
 import { FavoriteMovies } from '../../ui/FavoriteMovies';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { FavoriteMovieList } from '../../ui/FavoriteMovieList';
 
 function HomePage() {
   const {
@@ -18,6 +20,8 @@ function HomePage() {
     genres,
     loadingCategoriesPreview,
   } = useMovieAPI();
+  
+  const { getLikedMovies } = useLocalStorage();
   
   return (
     <>
@@ -50,6 +54,16 @@ function HomePage() {
         loading={loading}
         error={error}
         onLoading={() => <OnLoadingTrending />}
+        getLikedMovies={getLikedMovies}
+        render={movie => (
+          <FavoriteMovieList
+            key={movie.id}
+            id={movie.id}
+            title={movie.title}
+            image={movie.poster_path}
+            movie={movie}
+          />
+        )}
       />
 
       <Footer />

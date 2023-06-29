@@ -20,8 +20,13 @@ function useLocalStorage() {
 
     localStorage.setItem('liked_movies', JSON.stringify(likedMovies));
   };
+  
+  const getLikedMovies = () => {
+    const likedMovies = likedMovieList();
+    return Object.values(likedMovies);
+  };
 
-  return { likeMovie };
+  return { likeMovie, getLikedMovies };
 }
 
 export { useLocalStorage };

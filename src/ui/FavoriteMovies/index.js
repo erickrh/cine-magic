@@ -1,12 +1,13 @@
 import React from 'react';
 import './FavoriteMovies.css';
 import '../../routes/App.css';
-import { LikeButton } from '../LikeButton';
 
 function FavoriteMovies({
   error,
   loading,
   onLoading,
+  render,
+  getLikedMovies,
 }) {
 
   return (
@@ -24,37 +25,7 @@ function FavoriteMovies({
 
         {loading && onLoading()}
 
-        {/* {(!error && !loading) && favoriteMovies.map(render)} */}
-
-        <div
-          className='movie-container'>
-          <img
-            src={`https://image.tmdb.org/t/p/w300/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg`}
-            className='movie-img animation'
-            loading='lazy'
-          />
-          <LikeButton />
-        </div>
-
-        <div
-          className='movie-container'>
-          <img
-            src={`https://image.tmdb.org/t/p/w300/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg`}
-            className='movie-img animation'
-            loading='lazy'
-          />
-          <LikeButton />
-        </div>
-
-        <div
-          className='movie-container'>
-          <img
-            src={`https://image.tmdb.org/t/p/w300/rktDFPbfHfUbArZ6OOOKsXcv0Bm.jpg`}
-            className='movie-img animation'
-            loading='lazy'
-          />
-          <LikeButton />
-        </div>
+        {(!error && !loading) && getLikedMovies().map(render)}
       </article>
     </section>
   );
