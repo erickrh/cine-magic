@@ -1,7 +1,8 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react';
 
 function useLocalStorage() {
+  const [sync, setSync] = React.useState(true);
+  
   const likedMovieList = () => {
     const item = JSON.parse(localStorage.getItem('liked_movies'));
     let movies;
@@ -25,8 +26,14 @@ function useLocalStorage() {
     const likedMovies = likedMovieList();
     return Object.values(likedMovies);
   };
+  
+  React.useEffect(() => {
+    likedMovieList();
+    getLikedMovies();
+    console.log(sync);
+  }, [sync]);
 
-  return { likeMovie, getLikedMovies };
+  return { likeMovie, getLikedMovies, setSync };
 }
 
 export { useLocalStorage };
