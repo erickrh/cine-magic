@@ -25,7 +25,7 @@ function FavoriteMovies({
 
         {loading && onLoading()}
 
-        {(!error && !loading) && getLikedMovies().map(render)}
+        {(!error && !loading) && getLikedMovies.map(render)}
       </article>
     </section>
   );

@@ -1,39 +1,37 @@
 import React from 'react';
 
 function useLocalStorage() {
-  const [sync, setSync] = React.useState(true);
-  
-  const likedMovieList = () => {
-    const item = JSON.parse(localStorage.getItem('liked_movies'));
-    let movies;
-  
-    if (item) movies = item;
-    else movies = {};
-
-    return movies;
-  };
-
-  const likeMovie = movie => {
-    const likedMovies = likedMovieList();
-
-    if (movie.id in likedMovies) likedMovies[movie.id] = undefined;
-    else likedMovies[movie.id] = movie;
-
-    localStorage.setItem('liked_movies', JSON.stringify(likedMovies));
-  };
-  
-  const getLikedMovies = () => {
-    const likedMovies = likedMovieList();
-    return Object.values(likedMovies);
-  };
+  const [getLikedMovies, setGetLikedMovies] = React.useState([]);
+  const [trigger, setTrigger] = React.useState(1);
   
   React.useEffect(() => {
-    likedMovieList();
-    getLikedMovies();
-    console.log(sync);
-  }, [sync]);
+    let movies;
+    const item = JSON.parse(localStorage.getItem('liked_movies'));
+    if (item) movies = item;
+    else movies = {};
+    setGetLikedMovies(Object.values(movies));
+    console.log(trigger);
+  }, [trigger]);
 
-  return { likeMovie, getLikedMovies, setSync };
+  const likeMovie = movie => {
+    const likedMovies = [...getLikedMovies];
+    const indexMovie = likedMovies.findIndex(m => m.id === movie.id);
+    if (indexMovie === -1) {
+      likedMovies.unshift(movie);
+    }
+    else {
+      likedMovies.splice(indexMovie, 1);
+    }
+
+    localStorage.setItem('liked_movies', JSON.stringify(likedMovies));
+    setGetLikedMovies(likedMovies);
+    setTrigger(trigger + 1);
+  };
+
+  return {
+    getLikedMovies,
+    likeMovie,
+  };
 }
 
 export { useLocalStorage };
