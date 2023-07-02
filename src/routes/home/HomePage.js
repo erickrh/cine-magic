@@ -35,12 +35,12 @@ function HomePage() {
         render={movie => (
           <MovieList
             getLikedMovies={getLikedMovies}
-            likeMovie={likeMovie}
             key={movie.id}
             id={movie.id}
             title={movie.title}
             movie={movie}
             image={movie.poster_path}
+            likeMovie={likeMovie}
           />
         )}
       />
@@ -60,12 +60,12 @@ function HomePage() {
         render={movie => (
           <FavoriteMovieList
             getLikedMovies={getLikedMovies}
-            likeMovie={likeMovie}
             key={movie.id}
             id={movie.id}
             title={movie.title}
             image={movie.poster_path}
             movie={movie}
+            likeMovie={likeMovie}
           />
         )}
       />
