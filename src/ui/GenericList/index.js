@@ -4,7 +4,6 @@ import './../Header/Header.css';
 import './GenericList.css';
 import { TopContainer } from '../TopContainer';
 import { useNavigate } from 'react-router-dom';
-import { LikeButton } from '../LikeButton';
 
 function GenericList(props) {
   const navigate = useNavigate();
@@ -62,7 +61,6 @@ function GenericList(props) {
                 className="movie-img movieScrollAnimation"
                 alt={movie.title}
               />
-              <LikeButton />
             </div>
           );
         })}

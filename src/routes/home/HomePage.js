@@ -21,7 +21,7 @@ function HomePage() {
     loadingCategoriesPreview,
   } = useMovieAPI();
   
-  const { getLikedMovies } = useLocalStorage();
+  const { getLikedMovies, likeMovie } = useLocalStorage();
   
   return (
     <>
@@ -34,6 +34,8 @@ function HomePage() {
         onLoading={() => <OnLoadingTrending />}
         render={movie => (
           <MovieList
+            getLikedMovies={getLikedMovies}
+            likeMovie={likeMovie}
             key={movie.id}
             id={movie.id}
             title={movie.title}
@@ -57,6 +59,8 @@ function HomePage() {
         getLikedMovies={getLikedMovies}
         render={movie => (
           <FavoriteMovieList
+            getLikedMovies={getLikedMovies}
+            likeMovie={likeMovie}
             key={movie.id}
             id={movie.id}
             title={movie.title}

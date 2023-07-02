@@ -1,9 +1,25 @@
 import React from 'react';
-import { LikeButton } from '../LikeButton';
 import { useNavigate } from 'react-router-dom';
 
-function FavoriteMovieList({ id, title, movie, image }) {
+function FavoriteMovieList({ id, title, movie, image, likeMovie, getLikedMovies }) {
   const navigate = useNavigate();
+
+  const [isLike, setIsLike] = React.useState(false);
+
+  const handleLikeClick = e => {
+    likeMovie(movie);
+    setIsLike(!isLike);
+    e.stopPropagation();
+  };
+  
+  React.useEffect(() => {
+    const isAlreadyLike = () => {
+      const movieIds = getLikedMovies.map(m => m.id);
+      if (movieIds.includes(movie.id)) setIsLike(true);
+    };
+    isAlreadyLike();
+  }, [getLikedMovies]);
+
   return (
     <>
       <div
@@ -15,7 +31,7 @@ function FavoriteMovieList({ id, title, movie, image }) {
           alt={title}
           loading='lazy'
         />
-        <LikeButton movie={movie} />
+        <button onClick={handleLikeClick} type="button" className={isLike ? 'like-btn like-btn--liked' : 'like-btn'}></button>
       </div>
     </>
   );

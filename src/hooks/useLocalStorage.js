@@ -2,7 +2,6 @@ import React from 'react';
 
 function useLocalStorage() {
   const [getLikedMovies, setGetLikedMovies] = React.useState([]);
-  const [trigger, setTrigger] = React.useState(1);
   
   React.useEffect(() => {
     let movies;
@@ -10,8 +9,7 @@ function useLocalStorage() {
     if (item) movies = item;
     else movies = {};
     setGetLikedMovies(Object.values(movies));
-    console.log(trigger);
-  }, [trigger]);
+  }, []);
 
   const likeMovie = movie => {
     const likedMovies = [...getLikedMovies];
@@ -25,7 +23,6 @@ function useLocalStorage() {
 
     localStorage.setItem('liked_movies', JSON.stringify(likedMovies));
     setGetLikedMovies(likedMovies);
-    setTrigger(trigger + 1);
   };
 
   return {
