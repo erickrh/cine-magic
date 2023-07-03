@@ -30,6 +30,15 @@ function Header() {
 
   return (
     <header id='header' className='header-container'>
+
+      <div className="languageContainer">
+        <select name="language-select" id="language-select" className='language-select'>
+          <option value="en">🇺🇸 English</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="fr">🇫🇷 Français</option>
+        </select>
+      </div>
+
       {
         locationHash[1] !== 'search' && (
           <h1 className='header-title'>Cine Magic</h1>
