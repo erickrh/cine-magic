@@ -41,6 +41,9 @@
 .like-btn::before {
   content: '🤍';
   font-size: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .like-btn--liked {
@@ -50,4 +53,7 @@
 .like-btn--liked::before {
   content: '💔';
   font-size: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
