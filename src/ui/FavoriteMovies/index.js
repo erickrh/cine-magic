@@ -1,6 +1,7 @@
 import React from 'react';
 import './FavoriteMovies.css';
 import '../../routes/App.css';
+import { useNavigate } from 'react-router-dom';
 
 function FavoriteMovies({
   error,
@@ -10,12 +11,14 @@ function FavoriteMovies({
   getLikedMovies,
 }) {
 
+  const navigate = useNavigate();
+
   return (
     <section className='favoriteMovies'>
       <div className='favoriteMovies-header'>
         <h2 className='favoriteMovies-title'>Favorite Movies</h2>
 
-        <button type="button" className='seeMoreFavoriteMovies-btn'>
+        <button onClick={() => navigate('/favorite')} type="button" className='seeMoreFavoriteMovies-btn'>
           See more
         </button>
       </div>

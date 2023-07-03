@@ -5,6 +5,7 @@ import { TrendingPage } from './trending/TrendingPage';
 import { CategoryPage } from './category/CategoryPage';
 import { SearchPage } from './search/SearchPage';
 import { DetailsPage } from './details/DetailsPage';
+import { FavoritePage } from './favorite/FavoritePage';
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
         <Route path='/search/:query' element={<SearchPage />} />
 
         <Route path='/details/:movieId' element={<DetailsPage />} />
+
+        <Route path='/favorite' element={<FavoritePage />} />
 
         <Route path='*' element={<HomePage />} />
       </Routes>

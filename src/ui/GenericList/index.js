@@ -24,7 +24,7 @@ function GenericList(props) {
     if (observerRef.current) observerRef.current.disconnect();
 
     observerRef.current = new IntersectionObserver((entry, observer) => {
-      if (entry[0].isIntersecting) {
+      if (entry[0].isIntersecting && props.getPaginatedMovies) {
         props.getPaginatedMovies();
         observer.unobserve(entry[0].target);
       }
