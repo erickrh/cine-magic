@@ -4,8 +4,11 @@ import './../Header/Header.css';
 import './GenericList.css';
 import { TopContainer } from '../TopContainer';
 import { useNavigate } from 'react-router-dom';
+import { LikeButton } from '../LikeButton';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 function GenericList(props) {
+  const { likeMovie, getLikedMovies } = useLocalStorage();
   const navigate = useNavigate();
   const [triggerMsg, setTriggerMsg] = React.useState(false);
   const observerRef = React.useRef();
@@ -60,6 +63,12 @@ function GenericList(props) {
                 src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                 className="movie-img movieScrollAnimation"
                 alt={movie.title}
+              />
+
+              <LikeButton
+                movie={movie}
+                getLikedMovies={getLikedMovies}
+                likeMovie={likeMovie}
               />
             </div>
           );
