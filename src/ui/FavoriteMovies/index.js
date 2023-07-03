@@ -25,6 +25,8 @@ function FavoriteMovies({
 
         {loading && onLoading()}
 
+        {getLikedMovies.length < 1 && <p>It looks so empty here.</p>}
+
         {(!error && !loading) && getLikedMovies.map(render)}
       </article>
     </section>
