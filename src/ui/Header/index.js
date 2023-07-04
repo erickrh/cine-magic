@@ -3,11 +3,13 @@ import './Header.css';
 import '../../routes/App.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-function Header() {
+function Header({ translation, language }) {
   const navigate = useNavigate();
   const location = useLocation();
   const locationHash = location.pathname.split('/');
   const [inputSearchMovie, setInputSearchMovie] = React.useState('');
+  
+  const placeholderText = translation[language].inputPlaceholder;
 
   const onSearchValueChange = event => {
     setInputSearchMovie(event.target.value);
@@ -19,7 +21,7 @@ function Header() {
     if (inputSearchMovie.length > 0) {
       navigate(`/search/${inputSearchMovie}`);
     } else {
-      inputPlaceholder.placeholder = 'Oops, you forgot the name!';
+      inputPlaceholder.placeholder = placeholderText;
     }
     event.preventDefault();
   };

@@ -11,6 +11,7 @@ import { Onloadingcategories } from '../../ui/Onloadingcategories';
 import { FavoriteMovies } from '../../ui/FavoriteMovies';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { FavoriteMovieList } from '../../ui/FavoriteMovieList';
+import { useLanguageContext } from '../../hooks/useLanguageContext';
 
 function HomePage() {
   const {
@@ -22,10 +23,19 @@ function HomePage() {
   } = useMovieAPI();
   
   const { getLikedMovies, likeMovie } = useLocalStorage();
+
+  const {
+    translation,
+    language,
+    // changeLanguage,
+  } = useLanguageContext();
   
   return (
     <>
-      <Header />
+      <Header
+        language={language}
+        translation={translation}
+      />
 
       <TrendingPreview
         loading={loading}

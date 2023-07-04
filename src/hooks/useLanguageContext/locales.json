@@ -1,0 +1,23 @@
+{
+  "en": {
+    "Trends": "Trends",
+    "SeeMore": "See more",
+    "Categories": "Categories",
+    "FavoriteMovies": "Favorite Movies",
+    "inputPlaceholder": "Oops, you forgot the name!"
+  },
+  "es": {
+    "Trends": "Tendencias",
+    "SeeMore": "Ver más",
+    "Categories": "Categorias",
+    "FavoriteMovies": "Películas Favoritas",
+    "inputPlaceholder": "Ups, ¡olvidaste el nombre!"
+  },
+  "fr": {
+    "Trends": "Les tendances",
+    "SeeMore": "Voir plus",
+    "Categories": "Catégories",
+    "FavoriteMovies": "films préférés",
+    "inputPlaceholder": "Oups, vous avez oublié le nom!"
+  }
+}

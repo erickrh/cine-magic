@@ -6,26 +6,30 @@ import { CategoryPage } from './category/CategoryPage';
 import { SearchPage } from './search/SearchPage';
 import { DetailsPage } from './details/DetailsPage';
 import { FavoritePage } from './favorite/FavoritePage';
+import { LanguageProvider } from '../hooks/useLanguageContext';
 
 function App() {
   return (
     <HashRouter>
-      <Routes>
-        <Route path='/' element={<HomePage />} />
+      <LanguageProvider>
 
-        <Route path='/trending' element={<TrendingPage />} />
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+
+          <Route path='/trending' element={<TrendingPage />} />
         
-        <Route path='/category/:slug' element={<CategoryPage />} />
+          <Route path='/category/:slug' element={<CategoryPage />} />
 
-        <Route path='/search/:query' element={<SearchPage />} />
+          <Route path='/search/:query' element={<SearchPage />} />
 
-        <Route path='/details/:movieId' element={<DetailsPage />} />
+          <Route path='/details/:movieId' element={<DetailsPage />} />
 
-        <Route path='/favorite' element={<FavoritePage />} />
+          <Route path='/favorite' element={<FavoritePage />} />
 
-        <Route path='*' element={<HomePage />} />
-      </Routes>
-
+          <Route path='*' element={<HomePage />} />
+        </Routes>
+        
+      </LanguageProvider>
     </HashRouter>
   );
 }
