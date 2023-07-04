@@ -7,7 +7,9 @@
     "inputPlaceholder": "Oops, you forgot the name!",
     "error": "An error has occurred",
     "emptyMovies": "It looks so empty here...",
-    "madeBy": "Made with love by"
+    "madeBy": "Made with love by",
+    "loading": "Loading...",
+    "noFound": "No results found for"
   },
   "es": {
     "trends": "Tendencias",
@@ -17,7 +19,9 @@
     "inputPlaceholder": "Ups, ¡olvidaste el nombre!",
     "error": "Ha ocurrido un error",
     "emptyMovies": "Se ve tan vacío aquí...",
-    "madeBy": "Hecho con amor por"
+    "madeBy": "Hecho con amor por",
+    "loading": "Cargando...",
+    "noFound": "No se han encontrado resultados de"
   },
   "fr": {
     "trends": "Les tendances",
@@ -27,6 +31,8 @@
     "inputPlaceholder": "Oups, vous avez oublié le nom!",
     "error": "Une erreur est survenue",
     "emptyMovies": "Ça a l'air si vide ici...",
-    "madeBy": "Fait avec amour par"
+    "madeBy": "Fait avec amour par",
+    "loading": "Chargement...",
+    "noFound": "Aucun résultat trouvé pour"
   }
 }

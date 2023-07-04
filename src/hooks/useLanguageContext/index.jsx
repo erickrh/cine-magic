@@ -13,13 +13,15 @@ const LanguageProvider = ({ children }) => {
 
   const nodesLanguage = {
     error: translation[language].error,
+    madeBy: translation[language].madeBy,
     trends: translation[language].trends,
+    loading: translation[language].loading,
+    noFound: translation[language].noFound,
     seeMore: translation[language].seeMore,
     categories: translation[language].categories,
     emptyMovies: translation[language].emptyMovies,
     favoriteMovies: translation[language].favoriteMovies,
     inputPlaceholder: translation[language].inputPlaceholder,
-    madeBy: translation[language].madeBy,
   };
 
   const dataLang = {

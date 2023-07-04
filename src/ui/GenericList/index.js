@@ -6,6 +6,7 @@ import { TopContainer } from '../TopContainer';
 import { useNavigate } from 'react-router-dom';
 import { LikeButton } from '../LikeButton';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { useLanguageContext } from '../../hooks/useLanguageContext';
 
 function GenericList(props) {
   const { likeMovie, getLikedMovies } = useLocalStorage();
@@ -13,7 +14,7 @@ function GenericList(props) {
   const [triggerMsg, setTriggerMsg] = React.useState(false);
   const observerRef = React.useRef();
   const scrollEnd = React.useRef();
-
+  const { nodesLanguage } = useLanguageContext();
 
   React.useEffect(() => {
     const counter = setTimeout(() => {
@@ -74,12 +75,12 @@ function GenericList(props) {
           );
         })}
 
-        {props.error && <p>Ha ocurrido un error: {props.error}</p>}
+        {props.error && <p>{nodesLanguage.error}: {props.error}</p>}
 
-        {props.loading && <h2>Cargando...</h2>}
+        {props.loading && <h2>{nodesLanguage.loading}</h2>}
 
         {!props.movies.length && !props.error && !props.loading && triggerMsg && (
-          <h2>No {props.title} movies found.</h2>
+          <h2>{nodesLanguage.noFound} {props.title}.</h2>
         )}
 
         <span className='scrollEnd' ref={scrollEnd}></span>
