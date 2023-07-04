@@ -59,6 +59,8 @@ function HomePage() {
 
       <CategoriesPreview
         loading={loadingCategoriesPreview}
+        language={language}
+        translation={translation}
         OnLoading={() => <Onloadingcategories />}
       >
         <CategoriesPreviewList genres={genres} />
