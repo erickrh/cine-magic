@@ -1,23 +1,26 @@
 {
   "en": {
-    "Trends": "Trends",
-    "SeeMore": "See more",
-    "Categories": "Categories",
-    "FavoriteMovies": "Favorite Movies",
-    "inputPlaceholder": "Oops, you forgot the name!"
+    "trends": "Trends",
+    "seeMore": "See more",
+    "categories": "Categories",
+    "favoriteMovies": "Favorite Movies",
+    "inputPlaceholder": "Oops, you forgot the name!",
+    "error": "An error has occurred"
   },
   "es": {
-    "Trends": "Tendencias",
-    "SeeMore": "Ver más",
-    "Categories": "Categorias",
-    "FavoriteMovies": "Películas Favoritas",
-    "inputPlaceholder": "Ups, ¡olvidaste el nombre!"
+    "trends": "Tendencias",
+    "seeMore": "Ver más",
+    "categories": "Categorias",
+    "favoriteMovies": "Películas Favoritas",
+    "inputPlaceholder": "Ups, ¡olvidaste el nombre!",
+    "error": "Ha ocurrido un error"
   },
   "fr": {
-    "Trends": "Les tendances",
-    "SeeMore": "Voir plus",
-    "Categories": "Catégories",
-    "FavoriteMovies": "films préférés",
-    "inputPlaceholder": "Oups, vous avez oublié le nom!"
+    "trends": "Les tendances",
+    "seeMore": "Voir plus",
+    "categories": "Catégories",
+    "favoriteMovies": "films préférés",
+    "inputPlaceholder": "Oups, vous avez oublié le nom!",
+    "error": "Une erreur est survenue"
   }
 }

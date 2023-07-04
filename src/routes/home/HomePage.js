@@ -41,6 +41,8 @@ function HomePage() {
         loading={loading}
         error={error}
         trendingMovies={trendingMovies}
+        language={language}
+        translation={translation}
         onLoading={() => <OnLoadingTrending />}
         render={movie => (
           <MovieList
