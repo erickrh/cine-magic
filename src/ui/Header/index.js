@@ -8,8 +8,6 @@ function Header({ nodesLanguage }) {
   const location = useLocation();
   const locationHash = location.pathname.split('/');
   const [inputSearchMovie, setInputSearchMovie] = React.useState('');
-  
-  const placeholderText = nodesLanguage.inputPlaceholder;
 
   const onSearchValueChange = event => {
     setInputSearchMovie(event.target.value);
@@ -21,7 +19,7 @@ function Header({ nodesLanguage }) {
     if (inputSearchMovie.length > 0) {
       navigate(`/search/${inputSearchMovie}`);
     } else {
-      inputPlaceholder.placeholder = placeholderText;
+      inputPlaceholder.placeholder = nodesLanguage.inputPlaceholder;
     }
     event.preventDefault();
   };

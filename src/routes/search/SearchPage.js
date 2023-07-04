@@ -4,6 +4,7 @@ import { GenericList } from '../../ui/GenericList';
 import { useParams } from 'react-router-dom';
 import { useMovieAPI } from '../../hooks/useMovieAPI';
 import { Header } from '../../ui/Header';
+import { useLanguageContext } from '../../hooks/useLanguageContext';
 
 function SearchPage() {
   const { query } = useParams();
@@ -16,6 +17,8 @@ function SearchPage() {
     getMoviesBySearch,
     getPaginatedMoviesBySearch,
   } = useMovieAPI();
+
+  const { nodesLanguage } = useLanguageContext();
   
   const [allMovies, setAllMovies] = React.useState(searchMovies);
 
@@ -31,7 +34,7 @@ function SearchPage() {
   
   return (
     <>
-      <Header />
+      <Header nodesLanguage={nodesLanguage} />
       <GenericList
         loading={loading}
         error={error}
