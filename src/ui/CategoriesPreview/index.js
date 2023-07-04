@@ -6,15 +6,12 @@ function CategoriesPreview({
   children,
   loading,
   OnLoading,
-  language,
-  translation,
+  nodesLanguage,
 }) {
-
-  const categoryText = translation[language].categories;
 
   return (
     <section id='categoriesPreview' className='categoriesPreview-container'>
-      <h2 className='categoriesPreview-title'>{categoryText}</h2>
+      <h2 className='categoriesPreview-title'>{nodesLanguage.categories}</h2>
 
       {loading && OnLoading()}
 

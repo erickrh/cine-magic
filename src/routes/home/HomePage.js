@@ -25,33 +25,34 @@ function HomePage() {
   const { getLikedMovies, likeMovie } = useLocalStorage();
 
   const {
-    translation,
-    language,
+    nodesLanguage,
+    // language,
+    // translation,
     // changeLanguage,
   } = useLanguageContext();
   
   return (
     <>
       <Header
-        language={language}
-        translation={translation}
+        nodesLanguage={nodesLanguage}
+        // language={language}
+        // translation={translation}
       />
 
       <TrendingPreview
-        loading={loading}
         error={error}
+        loading={loading}
+        nodesLanguage={nodesLanguage}
         trendingMovies={trendingMovies}
-        language={language}
-        translation={translation}
         onLoading={() => <OnLoadingTrending />}
         render={movie => (
           <MovieList
-            getLikedMovies={getLikedMovies}
-            key={movie.id}
             id={movie.id}
-            title={movie.title}
             movie={movie}
+            key={movie.id}
+            title={movie.title}
             image={movie.poster_path}
+            getLikedMovies={getLikedMovies}
             likeMovie={likeMovie}
           />
         )}
@@ -59,18 +60,18 @@ function HomePage() {
 
       <CategoriesPreview
         loading={loadingCategoriesPreview}
-        language={language}
-        translation={translation}
+        nodesLanguage={nodesLanguage}
         OnLoading={() => <Onloadingcategories />}
       >
         <CategoriesPreviewList genres={genres} />
       </CategoriesPreview>
 
       <FavoriteMovies
-        loading={loading}
         error={error}
-        onLoading={() => <OnLoadingTrending />}
+        loading={loading}
+        nodesLanguage={nodesLanguage}
         getLikedMovies={getLikedMovies}
+        onLoading={() => <OnLoadingTrending />}
         render={movie => (
           <FavoriteMovieList
             getLikedMovies={getLikedMovies}
@@ -84,7 +85,7 @@ function HomePage() {
         )}
       />
 
-      <Footer />
+      <Footer nodesLanguage={nodesLanguage} />
     </>
   );
 }

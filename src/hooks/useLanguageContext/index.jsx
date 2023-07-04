@@ -11,9 +11,21 @@ const LanguageProvider = ({ children }) => {
     setLanguage(newLanguage);
   };
 
+  const nodesLanguage = {
+    error: translation[language].error,
+    trends: translation[language].trends,
+    seeMore: translation[language].seeMore,
+    categories: translation[language].categories,
+    emptyMovies: translation[language].emptyMovies,
+    favoriteMovies: translation[language].favoriteMovies,
+    inputPlaceholder: translation[language].inputPlaceholder,
+    madeBy: translation[language].madeBy,
+  };
+
   const dataLang = {
-    translation,
+    nodesLanguage,
     language,
+    translation,
     changeLanguage,
   };
 

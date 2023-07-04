@@ -9,6 +9,7 @@ function FavoriteMovies({
   onLoading,
   render,
   getLikedMovies,
+  nodesLanguage,
 }) {
 
   const navigate = useNavigate();
@@ -16,19 +17,19 @@ function FavoriteMovies({
   return (
     <section className='favoriteMovies'>
       <div className='favoriteMovies-header'>
-        <h2 className='favoriteMovies-title'>Favorite Movies</h2>
+        <h2 className='favoriteMovies-title'>{nodesLanguage.favoriteMovies}</h2>
 
         <button onClick={() => navigate('/favorite')} type="button" className='seeMoreFavoriteMovies-btn'>
-          See more
+          {nodesLanguage.seeMore}
         </button>
       </div>
 
       <article className='favoriteMovies-movieList'>
-        {error && <p>Ha ocurrido un error: {error}</p>}
+        {error && <p>{nodesLanguage.error}: {error}</p>}
 
         {loading && onLoading()}
 
-        {getLikedMovies.length < 1 && <p>It looks so empty here.</p>}
+        {getLikedMovies.length < 1 && <p>{nodesLanguage.emptyMovies}</p>}
 
         {(!error && !loading) && getLikedMovies.map(render)}
       </article>

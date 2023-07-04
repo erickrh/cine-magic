@@ -9,21 +9,14 @@ function TrendingPreview({
   trendingMovies,
   render,
   onLoading,
-  language,
-  translation,
+  nodesLanguage,
 }) {
   const navigate = useNavigate();
-
-  const langs = {
-    trends: translation[language].trends,
-    seeMore: translation[language].seeMore,
-    error : translation[language].error,
-  };
 
   return (
     <section id='trendingPreview' className='trendingPreview-container'>
       <div className='trendingPreview-header'>
-        <h2 className='trendingPreview-title'>{langs.trends}</h2>
+        <h2 className='trendingPreview-title'>{nodesLanguage.trends}</h2>
         <button
           onClick={() => navigate(
             '/trending',
@@ -32,12 +25,12 @@ function TrendingPreview({
             }
           )}
           className='trendingPreview-btn'>
-          {langs.seeMore}
+          {nodesLanguage.seeMore}
         </button>
       </div>
 
       <article className='trendingPreview-movieList'>
-        {error && <p>{langs.error}: {error}</p>}
+        {error && <p>{nodesLanguage.error}: {error}</p>}
 
         {loading && onLoading()}
 

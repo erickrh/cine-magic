@@ -3,13 +3,13 @@ import './Header.css';
 import '../../routes/App.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-function Header({ translation, language }) {
+function Header({ nodesLanguage }) {
   const navigate = useNavigate();
   const location = useLocation();
   const locationHash = location.pathname.split('/');
   const [inputSearchMovie, setInputSearchMovie] = React.useState('');
   
-  const placeholderText = translation[language].inputPlaceholder;
+  const placeholderText = nodesLanguage.inputPlaceholder;
 
   const onSearchValueChange = event => {
     setInputSearchMovie(event.target.value);

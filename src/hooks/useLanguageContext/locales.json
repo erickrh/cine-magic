@@ -5,7 +5,9 @@
     "categories": "Categories",
     "favoriteMovies": "Favorite Movies",
     "inputPlaceholder": "Oops, you forgot the name!",
-    "error": "An error has occurred"
+    "error": "An error has occurred",
+    "emptyMovies": "It looks so empty here...",
+    "madeBy": "Made with love by"
   },
   "es": {
     "trends": "Tendencias",
@@ -13,7 +15,9 @@
     "categories": "Categorias",
     "favoriteMovies": "Películas Favoritas",
     "inputPlaceholder": "Ups, ¡olvidaste el nombre!",
-    "error": "Ha ocurrido un error"
+    "error": "Ha ocurrido un error",
+    "emptyMovies": "Se ve tan vacío aquí...",
+    "madeBy": "Hecho con amor por"
   },
   "fr": {
     "trends": "Les tendances",
@@ -21,6 +25,8 @@
     "categories": "Catégories",
     "favoriteMovies": "films préférés",
     "inputPlaceholder": "Oups, vous avez oublié le nom!",
-    "error": "Une erreur est survenue"
+    "error": "Une erreur est survenue",
+    "emptyMovies": "Ça a l'air si vide ici...",
+    "madeBy": "Fait avec amour par"
   }
 }

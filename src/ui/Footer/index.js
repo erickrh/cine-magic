@@ -2,9 +2,9 @@ import React from 'react';
 import '../../index.css';
 import './Footer.css';
 
-function Footer() {
+function Footer({ nodesLanguage }) {
   return (
-    <footer>Made with love by Erick Riaño</footer>
+    <footer>{nodesLanguage.madeBy} Erick Riaño</footer>
   );
 }
 
