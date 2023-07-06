@@ -97,8 +97,12 @@ function useMovieAPI() {
 
   const [searchMovies, setSearchMovies] = React.useState([]);
   const [pageSearch, setPageSearch] = React.useState(1);
+  const [totalPages, setTotalPages] = React.useState();
+  const [finishSearch, setFinishSearch] = React.useState(false);
   const getMoviesBySearch = async query => {
     try {
+      setFinishSearch(false);
+      // setTotalPages(100);
       setPageSearch(1);
       setLoading(true);
       const { data } = await api('/search/movie', {
@@ -123,10 +127,12 @@ function useMovieAPI() {
         },
       });
       setPaginatedMoviesBySearch(data.results);
+      setTotalPages(data.total_pages);
     } catch (e) {
       setError(e);
     }
     setPageSearch(pageSearch + 1);
+    if (pageSearch >= totalPages) setFinishSearch(true);
   };
 
   const [movieDetails, setMovieDetails] = React.useState({});
@@ -142,6 +148,7 @@ function useMovieAPI() {
   };
   
   return {
+    finishSearch,
     loading,
     error,
     trendingMovies,

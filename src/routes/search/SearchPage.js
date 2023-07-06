@@ -10,8 +10,9 @@ function SearchPage() {
   const { query } = useParams();
   
   const {
-    loading,
+    finishSearch,
     error,
+    loading,
     searchMovies,
     paginatedMoviesBySearch,
     getMoviesBySearch,
@@ -36,9 +37,10 @@ function SearchPage() {
     <>
       <Header nodesLanguage={nodesLanguage} />
       <GenericList
-        loading={loading}
+        finishSearch={finishSearch}
         error={error}
         title={query}
+        loading={loading}
         movies={allMovies}
         getPaginatedMovies={() => getPaginatedMoviesBySearch(query)}
       />

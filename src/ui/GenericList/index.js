@@ -31,7 +31,11 @@ function GenericList(props) {
       }
     });
 
-    observerRef.current.observe(scrollEnd.current);
+    if (props.finishSearch) {
+      observerRef.current.disconnect();
+    } else {
+      observerRef.current.observe(scrollEnd.current);
+    }
 
     return () => {
       if (observerRef.current) observerRef.current.disconnect();
