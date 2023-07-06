@@ -1,13 +1,19 @@
 import React from 'react';
 import axios from 'axios';
+import { useLanguageContext } from './useLanguageContext';
 
 function useMovieAPI() {
+  const { language } = useLanguageContext();
+
   const api = axios.create({
     baseURL: 'https://api.themoviedb.org/3/',
     headers: {
       'Authorization': process.env.REACT_APP_API_TOKEN,
       'Content-Type': 'application/json;charset=utf-8',
     },
+    params: {
+      language,
+    }
   });
   
   const [loading, setLoading] = React.useState(false);
@@ -60,7 +66,7 @@ function useMovieAPI() {
       setLoadingCategoriesPreview(false);
     };
     getCategoriesPreview();
-  }, []);
+  }, [language]);
 
   const [categoryMovies, setCategoryMovies] = React.useState([]);
   const getMoviesByCategory = async id => {

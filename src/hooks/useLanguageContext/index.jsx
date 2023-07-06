@@ -5,7 +5,7 @@ import translation from './locales.json';
 const LanguageContext = createContext();
 
 const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = React.useState('es');
+  const [language, setLanguage] = React.useState('en');
 
   const changeLanguage = newLanguage => {
     setLanguage(newLanguage);
