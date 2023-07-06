@@ -7,8 +7,8 @@ const LanguageContext = createContext();
 const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = React.useState('en');
 
-  const changeLanguage = newLanguage => {
-    setLanguage(newLanguage);
+  const changeLanguage = e => {
+    setLanguage(e.target.value);
   };
 
   const nodesLanguage = {

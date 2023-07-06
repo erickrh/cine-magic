@@ -35,7 +35,7 @@ function HomePage() {
       <Header
         language={language}
         nodesLanguage={nodesLanguage}
-        changeLanguage={newLanguage => changeLanguage(newLanguage)}
+        changeLanguage={changeLanguage}
       />
 
       <TrendingPreview

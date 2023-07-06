@@ -28,10 +28,6 @@ function Header({ nodesLanguage, language, changeLanguage }) {
     if (event.key === 'Enter') goToSearchPage(event);
   };
 
-  const handleLanguageChange = event => {
-    changeLanguage(event.target.value);
-  };
-
   return (
     <header id='header' className='header-container'>
       <div className="languageContainer">
@@ -40,7 +36,7 @@ function Header({ nodesLanguage, language, changeLanguage }) {
           id="language-select"
           className='language-select'
           value={language}
-          onChange={handleLanguageChange}
+          onChange={changeLanguage}
         >
           <option value="en">🇺🇸 English</option>
           <option value="es">🇪🇸 Español</option>
