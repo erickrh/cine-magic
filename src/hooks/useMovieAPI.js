@@ -102,7 +102,6 @@ function useMovieAPI() {
   const getMoviesBySearch = async query => {
     try {
       setFinishSearch(false);
-      // setTotalPages(100);
       setPageSearch(1);
       setLoading(true);
       const { data } = await api('/search/movie', {

@@ -26,17 +26,16 @@ function HomePage() {
 
   const {
     nodesLanguage,
-    // language,
-    // translation,
-    // changeLanguage,
+    language,
+    changeLanguage,
   } = useLanguageContext();
   
   return (
     <>
       <Header
+        language={language}
         nodesLanguage={nodesLanguage}
-        // language={language}
-        // translation={translation}
+        changeLanguage={newLanguage => changeLanguage(newLanguage)}
       />
 
       <TrendingPreview

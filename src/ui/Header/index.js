@@ -3,7 +3,7 @@ import './Header.css';
 import '../../routes/App.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-function Header({ nodesLanguage }) {
+function Header({ nodesLanguage, language, changeLanguage }) {
   const navigate = useNavigate();
   const location = useLocation();
   const locationHash = location.pathname.split('/');
@@ -28,11 +28,20 @@ function Header({ nodesLanguage }) {
     if (event.key === 'Enter') goToSearchPage(event);
   };
 
+  const handleLanguageChange = event => {
+    changeLanguage(event.target.value);
+  };
+
   return (
     <header id='header' className='header-container'>
-
       <div className="languageContainer">
-        <select name="language-select" id="language-select" className='language-select'>
+        <select
+          name="language-select"
+          id="language-select"
+          className='language-select'
+          value={language}
+          onChange={handleLanguageChange}
+        >
           <option value="en">🇺🇸 English</option>
           <option value="es">🇪🇸 Español</option>
           <option value="fr">🇫🇷 Français</option>
